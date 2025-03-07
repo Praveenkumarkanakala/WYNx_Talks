@@ -1,0 +1,246 @@
+.award-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-image: url('../images/wynxbgn.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay-award {
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .overlay-award h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: white;
+  }
+  
+  .overlay-award p {
+    font-size: 1.2rem;
+    margin: 10px 0 0;
+  }
+  
+  @media (max-width: 1024px) {
+    .award-container {
+      height: 60vh;
+    }
+  
+    .overlay-award h1 {
+      font-size: 2.2rem;
+    }
+  
+    .overlay-award p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .award-container {
+      height: 50vh;
+    }
+  
+    .overlay-award h1 {
+      font-size: 2rem;
+    }
+  
+    .overlay-award p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .award-container {
+      height: 40vh;
+    }
+  
+    .overlay-award {
+      padding: 15px;
+    }
+  
+    .overlay-award h1 {
+      font-size: 1.5rem;
+    }
+  
+    .overlay-award p {
+      font-size: 0.9rem;
+    }
+  }
+  
+.award-categories {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.award-categories h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4A148C;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.award-categories h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #4A148C;
+  font-weight: 600;
+  animation: slideIn 1s ease-in-out;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background-color: #4A148C;
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+.categories-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.awards-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.awards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  max-width: 500px;
+}
+
+.awards-list li {
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-left: 3px solid #4A148C;
+  background: #f8f8f8;
+  margin: 5px 0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.awards-list li:hover {
+  background-color: #e1bee7;
+  transform: translateX(5px);
+}
+
+.awards-list strong {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000;
+  display: block;
+  margin-top: 20px;
+}
+
+.nominate-btn-container {
+  margin-top: 30px;
+}
+
+.nominate-btn-container .btn {
+  padding: 12px 25px;
+  background-color: #ff007f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  animation: fadeInUp 1s ease-in-out;
+}
+.nominate-btn-container .btn:hover {
+  background-color: #7B1FA2;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .categories-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .awards-column {
+    width: 100%;
+    text-align: center;
+  }
+
+  .awards-list {
+    max-width: 100%;
+  }
+
+  .award-categories h1 {
+    font-size: 1.5rem;
+  }
+
+  .award-categories h2 {
+    font-size: 1.3rem;
+  }
+
+  .awards-list li {
+    font-size: 0.9rem;
+  }
+
+  .nominate-btn-container .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .award-categories h1 {
+    font-size: 1.3rem;
+  }
+
+  .award-categories h2 {
+    font-size: 1.2rem;
+  }
+
+  .awards-list li {
+    font-size: 0.85rem;
+  }
+
+  .nominate-btn-container .btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}

@@ -1,0 +1,305 @@
+/* General Container Styling */
+.partners-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.partners-title {
+  color: #666;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.partners-subtitle {
+  color: #4A148C;
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.partners-divider {
+  color: #4A148C;
+  font-size: 24px;
+  margin: 20px 0 40px;
+}
+
+/* Responsive Grid for Partners */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.partner-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  padding: 20px;
+  text-align: center; /* Ensure text alignment is centered */
+}
+
+.partner-category {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 10px; /* Reduced margin for better spacing */
+}
+
+.partner-logo {
+  max-width: 200px; /* Fixed image size */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Portal Grid */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+/* Responsive Button */
+.become-button {
+  width: auto;
+  max-width: 250px;
+  padding: 12px;
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: #ff007f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.become-button:hover {
+  background-color: #e00072;
+}
+
+/* Newsletter Section */
+.newsletter-container {
+  position: relative;
+  width: 100%;
+  min-height: 20vh;
+  background-image: url('../images/wynxbg.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 2rem;
+}
+
+/* Contact Section */
+.contact-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-column {
+  text-align: center;
+ margin-right: -90%;
+}
+
+.contact-column h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.contact-details {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #221e40;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  padding: 40px 20px;
+}
+
+.newsletter {
+  background-image: url('../images/wynxfooter.jpg');
+  padding: 30px 10px;
+  width: 90%;
+  border-radius: 2rem;
+  position: relative;
+  height: auto;
+  margin: 20px auto;
+  color: white;
+  text-align: center;
+}
+
+.newsletter h4 {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #e0e0e0;
+}
+
+.newsletter h2 {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.subscribe-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subscribe-form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.subscribe-form input::placeholder {
+  color: #e0e0e0;
+}
+
+.subscribe-form button {
+  padding: 10px 20px;
+  background-color: #ff007f;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subscribe-form button:hover {
+  background-color: #e60072;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: white;
+  font-size: 26px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #ff007f;
+}
+
+.footer-links {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  color: #ff007f;
+}
+
+.footer-bottom p {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #e0e0e0;
+}
+
+/* 📌 Media Queries for Better Responsiveness */
+@media (max-width: 1024px) {
+  .partners-subtitle {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partners-subtitle {
+    font-size: 36px;
+  }
+
+  .partner-category {
+    font-size: 16px;
+  }
+
+  .become-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .newsletter h4 {
+    font-size: 22px;
+  }
+
+  .footer {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-subtitle {
+    font-size: 30px;
+  }
+
+  .become-button {
+    font-size: 1rem;
+  }
+
+  .newsletter h4 {
+    font-size: 20px;
+  }
+
+  .subscribe-form input {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .footer {
+    padding: 20px 10px;
+  }
+
+  .footer-links {
+    font-size: 12px;
+  }
+}
