@@ -1,4 +1,4 @@
-/* Background container with overlay */
+
 .spbackground-container {
   position: relative;
   width: 100%;
@@ -15,7 +15,6 @@
   position: absolute;
   color: white;
   text-align: center;
-  /* background-color: rgba(0, 0, 0, 0.5); */
   padding: 20px;
   border-radius: 10px;
   width: 90%;
@@ -34,7 +33,6 @@
   margin: 10px 0 0;
 }
 
-/* Responsive styles for background */
 @media (max-width: 1024px) {
   .spbackground-container {
     height: 60vh;

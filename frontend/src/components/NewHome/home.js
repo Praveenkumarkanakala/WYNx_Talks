@@ -1,6 +1,5 @@
 import './home.css';
 import React, { useState, useEffect } from 'react';
-// import { MapPin, Calendar } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import image from '../images/ngust8.webp' 
 import image0 from '../images/gust.jpg'
@@ -51,18 +50,18 @@ import newimg16 from '../images/wnrb15.png'
 import newimg17 from '../images/wnrb16.png' 
 
 
-import img from '../images/galleryn.jpg'
-import img0 from '../images/galleryn0.jpg'
-import img1 from '../images/galleryn1.jpg'
+import img from '../images/galleryn.JPG'
+import img0 from '../images/galleryn0.JPG'
+import img1 from '../images/galleryn1.JPG'
 import img2 from '../images/galleryn2.jpg'
 import img3 from '../images/galleryn3.jpg'
-import img4 from '../images/galleryn4.jpg'
-import img5 from '../images/galleryn5.jpg'
-import img6 from '../images/galleryn6.jpg'
-import img7 from '../images/galleryn7.jpg'
-import img8 from '../images/galleryn8.jpg'
-import img9 from '../images/galleryn9.jpg'
-import img10 from '../images/galleryn10.jpg'
+import img4 from '../images/galleryn4.JPG'
+import img5 from '../images/galleryn5.JPG'
+import img6 from '../images/galleryn6.JPG'
+import img7 from '../images/galleryn7.JPG'
+import img8 from '../images/galleryn8.JPG'
+import img9 from '../images/galleryn9.JPG'
+import img10 from '../images/galleryn10.JPG'
 import img11 from '../images/galleryn11.jpg'
 import img12 from '../images/galleryn12.jpg'
 import img13 from '../images/galleryn13.jpg' 
@@ -78,7 +77,7 @@ const Homepage = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const eventDate = new Date('2025-03-08T00:00:00');
+    const eventDate = new Date('2026-03-08T00:00:00');
     const interval = setInterval(() => {
       const now = new Date();
       const difference = eventDate - now;

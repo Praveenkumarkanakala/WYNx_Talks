@@ -25,20 +25,21 @@ const LeadershipSummit = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+  
     // Validate workshop selection
     const selectedWorkshops = formData.workshops || [];
     if (selectedWorkshops.length !== 3) {
       alert('Please select exactly 3 workshops.');
       return;
     }
-
+  
     // Validate 'other' benefit input
     if (formData.benefit === 'other' && !formData['benefit-other']) {
       alert('Please specify your other benefit.');
       return;
     }
-
+  
+    // Navigate to the preview page with form data
     navigate('/preview', { state: { formData } });
   };
 
