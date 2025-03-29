@@ -36,7 +36,7 @@ const CheckoutForm = ({ formData }) => {
 
     // Simulate fetching a clientSecret from the backend
     try {
-      const response = await fetch("http://localhost:5001/create-payment-intent", {
+      const response = await fetch("https://wyn-conferences.onrender.com/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

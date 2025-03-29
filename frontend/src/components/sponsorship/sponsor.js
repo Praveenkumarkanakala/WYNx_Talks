@@ -67,7 +67,7 @@ const BackgroundWithForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5001/send-email", formData);
+      const response = await axios.post("https://wyn-conferences.onrender.com/send-email", formData);
       alert(response.data.message);
       setFormData({ name: "", email: "", mobile: "", company: "", designation: "", state: "", city: "" });
     } catch (error) {
