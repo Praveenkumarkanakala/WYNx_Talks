@@ -1,7 +1,7 @@
 import './home.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import image from '../images/gust0.JPG' 
+import image from '../images/guest0.jpg' 
 import image0 from '../images/gust.jpeg'
 import image1 from '../images/gust13.JPG'
 import image2 from '../images/gust1.jpeg'
@@ -59,7 +59,7 @@ import img6 from '../images/galleryn6.jpg'
 import img7 from '../images/galleryn7.JPG'
 import img8 from '../images/galleryn8.jpg'
 import img9 from '../images/galleryn9.jpg'
-import img10 from '../images/galleryn10.JPG'
+import img10 from '../images/galleryn10.jpg'
 import img11 from '../images/galleryn11.jpg'
 import img12 from '../images/galleryn12.jpg'
 import img13 from '../images/galleryn13.jpg' 
