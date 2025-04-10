@@ -45,10 +45,10 @@ const Navbar = () => {
           <li className="dropdown">
             <a href="#award">AWARD <i className="fa fa-angle-down"></i></a>
             <ul className="dropdown-menu">
-              <li><a href="/awardctg">Award Categories</a></li>
-              <li><a href="/newreg">Nominate Now</a></li>
+              <li><a href="/awardcategories">Award Categories</a></li>
+              <li><a href="/awardsnomination">Nominate Now</a></li>
               <li><a href="/whynominate">Why Nominate</a></li>
-              <li><a href="/awardwnrs">Award Winners</a></li>
+              <li><a href="/awardwinners">Award Winners</a></li>
             </ul>
           </li>
           <li><a href="/sponsor">SPONSOR</a></li>

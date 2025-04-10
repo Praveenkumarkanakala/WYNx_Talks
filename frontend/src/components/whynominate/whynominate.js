@@ -1,9 +1,11 @@
 import React from "react";
 import "./whynominate.css";
+import { useNavigate } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Navbar from "../Navbar/navbar";
 
 const Whynominate = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar />
@@ -26,7 +28,9 @@ const Whynominate = () => {
       and impact take center stage—submit your nomination today!
       </p>
       
-      <button className="nominate-button">Enter To Win</button>
+      <button className="nominate-button" onClick={() => navigate('/awardsnomination')}>
+        Enter To Win
+      </button>
     </section>
 
     

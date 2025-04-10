@@ -67,9 +67,9 @@ const Partners = () => {
               <p className="name">Dr Prasad Varma</p>
               
             </div>
-            <p className="phone">+91 9121794421</p> 
+            <p className="phone">+1 (716) 217-1471</p> 
             
-            <p className="email">dr.prasadkovviru@gmail.com </p>
+            <p className="email">wynxtalks@gmail.com </p>
           </div>
         </div>
       </div>

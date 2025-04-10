@@ -37,12 +37,13 @@ const CheckoutForm = ({ formData }) => {
     // Simulate fetching a clientSecret from the backend
     try {
       const response = await fetch("https://wynxtalks.com/api/create-payment-intent", {
+      // const response = await fetch("http://localhost:5001/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          amount: 90000, // $900 in cents
+          amount: 99900, // $999 in cents
         }),
       });
 

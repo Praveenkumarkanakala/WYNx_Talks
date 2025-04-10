@@ -94,7 +94,7 @@ const Awardcategory = () => {
   </div>
 
   <div className="nominate-btn-container">
-    <a href="/newreg" className="btn">Enter To Win</a>
+    <a href="/awardsnomination" className="btn">Enter To Win</a>
   </div>
 </div>
 

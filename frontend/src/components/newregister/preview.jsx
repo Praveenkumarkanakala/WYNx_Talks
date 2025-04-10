@@ -128,7 +128,7 @@ const PreviewPage = () => {
               fontSize: '1.2rem',
             }}
           >
-            Award Winning Fee is $900
+            Award Winning Fee is $999
           </Typography>
         </Box>
 

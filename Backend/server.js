@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 // MongoDB Connection
 mongoose.connect("mongodb+srv://praveenkumarkanakala123:Praveen@2003@ion.svdmv.mongodb.net/paymentDB", {
+// mongoose.connect("mongodb://127.0.0.1:27017/paymentDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

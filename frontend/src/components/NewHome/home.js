@@ -1,19 +1,20 @@
 import './home.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import image from '../images/ngust8.webp' 
-import image0 from '../images/gust.jpg'
-import image1 from '../images/gust1.jpg'
-import image2 from '../images/gust0.jpg'
-import image3 from '../images/gust8.jpg'
-import image4 from '../images/gust4.jpg'
-import image5 from '../images/gust5.jpg'
-import image6 from '../images/gust6.jpg'
-import image7 from '../images/gust7.jpg'
-import image8 from '../images/gust0.jpg'
-import image9 from '../images/gust9.jpg'
-import image10 from '../images/gust10.png'
-import image11 from '../images/gust11.png'
+import image from '../images/gust0.JPG' 
+import image0 from '../images/gust.jpeg'
+import image1 from '../images/gust13.JPG'
+import image2 from '../images/gust1.jpeg'
+import image3 from '../images/gust2.jpeg'
+import image4 from '../images/gust3.jpeg'
+import image5 from '../images/gust4.jpeg'
+import image6 from '../images/gust5.jpeg'
+import image7 from '../images/gust6.JPG'
+import image8 from '../images/gust7.JPG'
+import image9 from '../images/gust8.JPG'
+import image10 from '../images/gust10.JPG'
+import image11 from '../images/gust11.JPG'
+
 import image12 from '../images/gallery6.jpg'  
 import newbs from '../images/health.jpg'
 import newbs1 from '../images/finance.jpg'
@@ -53,12 +54,12 @@ import img1 from '../images/galleryn1.jpg'
 import img2 from '../images/galleryn2.jpg'
 import img3 from '../images/galleryn3.jpg'
 import img4 from '../images/galleryn4.jpg'
-import img5 from '../images/galleryn5.jpg'
+import img5 from '../images/galleryna5.JPG'
 import img6 from '../images/galleryn6.jpg'
-import img7 from '../images/galleryn7.jpg'
+import img7 from '../images/galleryn7.JPG'
 import img8 from '../images/galleryn8.jpg'
 import img9 from '../images/galleryn9.jpg'
-import img10 from '../images/galleryn10.jpg'
+import img10 from '../images/galleryn10.JPG'
 import img11 from '../images/galleryn11.jpg'
 import img12 from '../images/galleryn12.jpg'
 import img13 from '../images/galleryn13.jpg' 
@@ -271,7 +272,7 @@ const Homepage = () => {
             more resilient societies.
           </p>
 
-          <button className="nominate-button" onClick={() => navigate('/newreg')}>
+          <button className="nominate-button" onClick={() => navigate('/awardsnomination')}>
           Enter To Win
         </button>
         </div>
@@ -407,7 +408,7 @@ const Homepage = () => {
           Don't miss this opportunity to showcase your accomplishments.
         </p>
         
-        <button className="nomination-button" onClick={() => navigate('/newreg')}>
+        <button className="nomination-button" onClick={() => navigate('/awardsnomination')}>
            NOMINATIONS ARE NOW OPEN!
         </button>
       </div>
@@ -459,7 +460,7 @@ const Homepage = () => {
           </div>
         ))}
       </div>
-      <button className="nominate-newbutton" onClick={() => navigate('/newreg')}>
+      <button className="nominate-newbutton" onClick={() => navigate('/awardsnomination')}>
         Enter To Win
       </button>
     </div>
