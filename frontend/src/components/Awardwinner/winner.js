@@ -3,33 +3,11 @@ import "./winner.css";
 import Footer from '../footer/footer';
 import Navbar from "../Navbar/navbar";
 
-
-
 const Awardwinners = () => {
-
     const [selectedYear, setSelectedYear] = useState('2024');
-
     const awards = {
-        '2024': [
-          // { title: 'Successpreneur of the Year- Web Solution', recipient: 'Mr. Mithilesh Kumar Gupta ; Co Founder ; v2Web Hosting Pvt Ltd' },
-          // { title: 'Upcoming Women Successpreneur of the Year', recipient: 'Ms. Yamini Vemuri TC ; Founder & CEO ; Deva Raya Industries Pvt Ltd' },
-          // { title: 'Successpreneur of the Year- Facility Management', recipient: 'Mr. Murugraj Swaminathan Founder & CEO & Ms. Malarvizhi Ponnambalam Co founder & COO ; Integra Facility Management' },
-
-          // { title: 'Successpreneur of the Year-Online Marketplace', recipient: 'Mr. Vijay Kishore Kandukuri ; Chairman ; Bidfe' },
-          // { title: 'Successpreneur of the Year- D2C Brand of South India', recipient: 'Mr. Santhosh Balasundaram ; CEO ; Shadow Etail' },
-          // { title: 'Successpreneur of the Year - Supermarket Consultancy', recipient: 'Hawwa Consultant' },
-
-        ],
-        '2023': [
-              
-        //   { title: 'Most Impactful Bootcamp of the Year- Full Stack Developer Program', recipient: 'TalentSprint Private Limited' },
-        //   { title: 'Growing junior colleges of the year- Telangana and Andhra Pradesh', recipient: 'Resonance' },
-        //   { title: 'Successpreneur of the Year- Furniture Business', recipient: 'Mr. Raghunandan Saraf, Founder & CEO, Saraf Furniture' },
-        //   { title: 'Successpreneur of the Year- Corrugated Paper Manufacturer', recipient: 'Mr. Aman Kedia, CEO. M K Paper Mills' },
-        //   { title: 'Successpreneur of the Year- Hospitality Consultant', recipient: 'Chef Kiran Joshi, Founder & Ceo, Dattatray hospitality consultancy services' },
-        //   { title: 'Successpreneur of the Year- Music School Chain', recipient: 'Philip Sanjeeva Rao, Director, PHILIPS SCHOOL OF MUSIC' },
-          
-         ],
+        '2024': [   ],
+        '2023': [   ],
       };
 
     return (

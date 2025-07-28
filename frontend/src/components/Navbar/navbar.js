@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import logo from './WYNx_logo.png';
@@ -11,7 +10,6 @@ const Navbar = () => {
     const updatePosition = () => {
       setScrollPosition(window.scrollY);
     };
-
     window.addEventListener("scroll", updatePosition);
     return () => window.removeEventListener("scroll", updatePosition);
   }, []);
@@ -24,17 +22,10 @@ const Navbar = () => {
     <nav className={`navbar ${scrollPosition > 50 ? "navbar-scrolled" : ""}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="/">
-            <img src={logo} alt="Logo" />
-          </a>
+          <a href="/"> <img src={logo} alt="Logo" /> </a>
         </div>
         
-        <button 
-          className="mobile-menu-btn"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-          aria-expanded={isMobileMenuOpen}
-        >
+        <button  className="mobile-menu-btn" onClick={toggleMobileMenu} aria-label="Toggle mobile menu"  aria-expanded={isMobileMenuOpen}  >
           <span></span>
           <span></span>
           <span></span>
@@ -42,13 +33,20 @@ const Navbar = () => {
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
           <li><a href="/">HOME</a></li>
+           <li className="dropdown">
+            <a href="#award">NOMINATIONS <i className="fa fa-angle-down"></i></a>
+            <ul className="dropdown-menu">
+              <li><a href="/awardsnomination">Nominate Now</a></li>
+              <li><a href="/whynominate">Why Nominate</a></li>
+              <li><a href="#3minvideo">3 min videos</a></li>
+            </ul>
+          </li>
+          <li><a href="#carnival">CARNIVAL CONCLAVE</a></li>
           <li className="dropdown">
             <a href="#award">AWARD <i className="fa fa-angle-down"></i></a>
             <ul className="dropdown-menu">
               <li><a href="/awardcategories">Award Categories</a></li>
-              <li><a href="/awardsnomination">Nominate Now</a></li>
-              <li><a href="/whynominate">Why Nominate</a></li>
-              <li><a href="/awardwinners">Award Winners</a></li>
+              <li><a href="/awardwinners">Award Winners </a></li>
             </ul>
           </li>
           <li><a href="/sponsor">SPONSOR</a></li>
@@ -67,4 +65,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar; 

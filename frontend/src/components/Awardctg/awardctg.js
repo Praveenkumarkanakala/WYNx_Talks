@@ -22,7 +22,7 @@ const Awardcategory = () => {
   <hr className="divider" />
 
   <div className="categories-container">
-    {/* Left Column */}
+    
     <div className="awards-column">
       <ul className="awards-list">
         <li><strong>Champion of Resilient Leadership</strong></li>
@@ -55,7 +55,7 @@ const Awardcategory = () => {
        </ul>
     </div>
 
-    {/* Right Column */}
+   
     <div className="awards-column">
       <ul className="awards-list">
         <li><strong>Architect of Inclusive Leadership Cultures</strong></li>
@@ -104,26 +104,3 @@ const Awardcategory = () => {
 };
 
 export default Awardcategory;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
