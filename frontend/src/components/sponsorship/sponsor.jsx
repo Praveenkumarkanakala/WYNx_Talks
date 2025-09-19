@@ -41,7 +41,7 @@ const SponsorRegistration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("https://wynxtalks.com/api/send-email", formData);
+      const { data } = await axios.post("http://localhost:5001/send-email", formData);
       alert(data.message);
       setFormData({ name: "", email: "", mobile: "", company: "", designation: "", state: "", city: "" });
     } catch {

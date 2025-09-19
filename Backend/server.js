@@ -8,10 +8,12 @@ const bodyParser = require("body-parser");
 const Stripe = require("stripe");
 const path = require("path");
 const multer = require("multer");
+const { log } = require('console');
 
 const upload = multer({ dest: 'uploads/' });
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const app = express();
+console.log("Stripe Key:", process.env.STRIPE_SECRET_KEY);
 
 app.use(cors());
 app.use(bodyParser.json());

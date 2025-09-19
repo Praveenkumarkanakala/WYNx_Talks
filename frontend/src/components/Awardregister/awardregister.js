@@ -30,7 +30,7 @@ const LeadershipSummit = () => {
     };
   
     try {
-      const response = await fetch('https://wynxtalks.com/api/create-payment-intent', {
+      const response = await fetch('http://localhost:5001/create-payment-intent', {
       // const response = await fetch('https://wynxtalks.com/api/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

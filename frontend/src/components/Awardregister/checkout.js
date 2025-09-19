@@ -1,7 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
 import {
   Container,
   Typography,
@@ -12,7 +17,7 @@ import {
   Alert,
 } from "@mui/material";
 
-const stripePromise = loadStripe("pk_live_51NZAOXSHndIYc9QjsYvC1BF7dV0ZPqaSYxSZJOmMmIvm5ZukRFNOp1dOFPmKLw8eBgqjO35ot8L6x0mF1Ypbyahp00XKqIb6TM");
+const stripePromise = loadStripe("pk_live_51RwLAARzckuLa8yPZ5etoX3yvRSYsOKCA4CQ8kUulRf9DZ3UVjwqelZaaE1tUvn5lD5FC5MpBWQw2CNiU53nC2Sd00Cgc5uc3r");
 
 const CheckoutForm = ({ formData }) => {
   const stripe = useStripe();
@@ -34,30 +39,53 @@ const CheckoutForm = ({ formData }) => {
 
     const cardElement = elements.getElement(CardElement);
 
-    // Simulate fetching a clientSecret from the backend
     try {
-      // const response = await fetch("https://wynxtalks.com/api/create-payment-intent", {
-      const response = await fetch("https://wynxtalks.com/api/create-payment-intent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      // Prepare billing details object
+      const billingDetails = {
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        address: {
+          line1: formData.address || "N/A", // add address field if you have one
         },
-        body: JSON.stringify({
-          amount: 99900, // $999 in cents
-        }),
-      });
+      };
 
-      const { clientSecret } = await response.json();
+      // Call your backend to create a PaymentIntent
+      const response = await fetch(
+        "http://localhost:5001/create-payment-intent",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: 200, // amount in USD dollars (your backend multiplies by 100)
+            billingDetails,
+          }),
+        }
+      );
 
-      const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
+      const { clientSecret, error: backendError } = await response.json();
+      if (backendError) {
+        setError(backendError);
+        setLoading(false);
+        return;
+      }
+
+      // Confirm the payment with card details + billing info
+      const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
+          billing_details: billingDetails,
         },
       });
 
-      if (error) {
-        setError(error.message);
-      } else if (paymentIntent.status === "succeeded") {
+      if (result.error) {
+        setError(result.error.message);
+      } else if (
+        result.paymentIntent &&
+        result.paymentIntent.status === "succeeded"
+      ) {
         setSuccess(true);
         setTimeout(() => alert("Payment successful!"), 1000);
       }
@@ -73,11 +101,13 @@ const CheckoutForm = ({ formData }) => {
       <Typography variant="h5" align="center" gutterBottom>
         Complete Payment
       </Typography>
+
       {error && (
         <Alert severity="error" sx={{ mb: 2 }}>
           {error}
         </Alert>
       )}
+
       {success ? (
         <Alert severity="success">Payment Successful!</Alert>
       ) : (

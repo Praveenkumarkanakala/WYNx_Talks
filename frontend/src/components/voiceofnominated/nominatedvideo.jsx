@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import video1 from '../voiceofnominated/Cátia Arnaut video.mp4';
 import video2 from '../voiceofnominated/speaker video.mp4';
-// import video3 from '../voiceofnominated/Cátia Arnaut video.mp4';
-// import video4 from '../voiceofnominated/Cátia Arnaut video.mp4';
-// import video5 from '../voiceofnominated/Cátia Arnaut video.mp4';
-// import video6 from '../voiceofnominated/Cátia Arnaut video.mp4';
+import video3 from '../voiceofnominated/Dawn chen video.mp4';
 
 const VideosPage = () => {
-  const videoSources = [video1, video2];
+  const videoSources = [video1, video2, video3];
 
   useEffect(() => {
     const style = document.createElement('style');

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import image1 from './conclaveimage2.jpg';
 import image2 from './conclaveimage1.jpg';
 import image3 from './conclaveimage.jpg';
+import { useNavigate } from 'react-router-dom';
+
 
 const ConferenceCard = ({ imageSrc, conferenceName, location, date, showDetails, pdfId }) => {
   const [showModal, setShowModal] = useState(false);
@@ -12,6 +14,7 @@ const ConferenceCard = ({ imageSrc, conferenceName, location, date, showDetails,
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const navigate = useNavigate();
 
   const sendPDFEmail = async (email, name, pdfId) => {
     try {
@@ -75,14 +78,19 @@ const ConferenceCard = ({ imageSrc, conferenceName, location, date, showDetails,
           <h3 style={styles.conferenceName}>{conferenceName}</h3>
           <p style={styles.infoText}><strong>Date:</strong> {date}</p>
           <p style={styles.infoText}><strong>Location:</strong> {location}</p>
-
           {showDetails && (
-            <button style={styles.detailsButton} onClick={() => setShowModal(true)}>
-              Details
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 'auto' }}>
+              <button style={styles.detailsButton} onClick={() => setShowModal(true)}>
+                Details
+              </button>
+              <button style={styles.detailsButton} onClick={() => navigate('/awardsnomination')}>
+                Register
+              </button>
+            </div>
           )}
         </div>
       </div>
+
 
       {showModal && (
         <div style={styles.modalOverlay}>
