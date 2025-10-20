@@ -1,6 +1,7 @@
 import './home.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ambassadorImg from '../images/WYNx Brand ambassodor.jpg'
 import image from '../images/gust0.png' 
 import image0 from '../images/gust.jpeg'
 import image1 from '../images/gust13.png'
@@ -16,18 +17,6 @@ import image10 from '../images/gust10.png'
 import image11 from '../images/gust11.png'
 
 import image12 from '../images/gallery6.jpg'  
-import newbs from '../images/health.jpg'
-import newbs1 from '../images/finance.jpg'
-import newbs2 from '../images/education.jpg'
-import newbs3 from '../images/newbs15.jpg'
-import newbs4 from "../images/newbs2.jpg"
-import newbs5 from "../images/newbs3.jpg"
-import newbs6 from "../images/tourism.jpg"
-import newbs7 from "../images/newbs13.jpg"
-import newbs8 from "../images/electric.jpg"
-import newbs9 from "../images/jems.jpg"
-import newbs10 from "../images/startup.webp"
-import newbs11 from "../images/realestate.jpg"
 
 import img from '../images/galleryn.jpg'
 import img0 from '../images/galleryn0.jpg'
@@ -45,19 +34,76 @@ import img11 from '../images/galleryn11.jpg'
 import img12 from '../images/galleryn12.jpg'
 import img13 from '../images/galleryn13.jpg' 
 
-import speaker1 from '../images/regspeaker.jpg';
-import speaker2 from '../images/regspeaker1.jpg';
-import speaker3 from '../images/regspeaker2.jpg';
-import speaker4 from '../images/regspeaker3.jpg';
-import speaker5 from '../images/regspeaker4.jpg';
-import speaker6 from '../images/regspeaker5.jpg';
-import speaker7 from '../images/regspeaker6.jpg';
+import sepimg from '../images/sepgallery0.jpg'
+import sepimg0 from '../images/sepgallery1.jpg'
+import sepimg1 from '../images/sepgallery2.jpg'
+import sepimg2 from '../images/sepgallery3.jpg'
+import sepimg3 from '../images/sepgallery4.jpg'
+import sepimg5 from '../images/sepgallery11.jpg'
+import sepimg6 from '../images/sepgallery12.jpg'
+import sepimg7 from '../images/sepgallery13.jpg'
+import sepimg8 from '../images/sepgallery14.jpg'
+
+
+import speaker1 from '../speaker images/regspeaker.jpg';
+import speaker2 from '../speaker images/regspeaker1.jpg';
+import speaker3 from '../speaker images/regspeaker2.jpg';
+import speaker4 from '../speaker images/regspeaker3.jpg';
+import speaker5 from '../speaker images/regspeaker4.jpg';
+import speaker6 from '../speaker images/regspeaker5.jpg';
+import speaker7 from '../speaker images/regspeaker6.jpg';
+import parisspeaker from '../speaker images/Allison C. Williams.jpg';
+import parisspeaker0 from '../speaker images/Anne Deatly Phd.jpg';
+import parisspeaker1 from '../speaker images/Arsella Burton.jpg';
+import parisspeaker2 from '../speaker images/Bruce Wren.jpg';
+import parisspeaker3 from '../speaker images/Carlota De Gula Iremedio.jpg';
+import parisspeaker4 from '../speaker images/Yelena Kalendareva.jpg';
+import parisspeaker5 from '../speaker images/Wanna Williamson-Jackson.jpg';
+import parisspeaker6 from '../speaker images/Thiru Damodharan.jpg';
+import parisspeaker7 from '../speaker images/Stephani Forbes.jpg';
+import parisspeaker8 from '../speaker images/Sam Sammane.jpg';
+import parisspeaker9 from '../speaker images/Rudy Merouchi.jpg';
+import parisspeaker10 from '../speaker images/Rasimah Jar.jpg';
+import parisspeaker11 from '../speaker images/Nio Queiro.jpg';
+import parisspeaker12 from '../speaker images/Christine Forment.jpg';
+import parisspeaker13 from '../speaker images/Deborah S. Greenhut.jpg';
+import parisspeaker14 from '../speaker images/Dr. Denise Y Wynn.jpg';
+import parisspeaker15 from '../speaker images/Dr. Dimple Patel.jpg';
+import parisspeaker16 from '../speaker images/Dr. Ignacio Bonasa.jpg';
+import parisspeaker17 from '../speaker images/Dr. Laura Kristan Wilhelm.jpg';
+import parisspeaker18 from '../speaker images/Dr. Sharon Shappley.jpg';
+import parisspeaker19 from '../speaker images/Eniko Frenyo Simoes.jpg';
+import parisspeaker20 from '../speaker images/Huma Nosheen Mirza.jpg';
+import parisspeaker21 from '../speaker images/Jean Pael.jpg';
+import parisspeaker22 from '../speaker images/Jeffrey Herbert Williams.jpg';
+import parisspeaker23 from '../speaker images/Karima GUERFALI LAZZEM.jpg';
+import parisspeaker24 from '../speaker images/Limor Jasinski.jpg';
+import parisspeaker25 from '../speaker images/Lissette Valle.jpg';
+import parisspeaker26 from '../speaker images/Nikki Langman.jpg';
+
+import parisspeaker27 from '../speaker images/Tristina Anderson.jpg';
+import parisspeaker28 from '../speaker images/Margaret Vuijk-Cieslak.jpg';
+import parisspeaker29 from '../speaker images/Bente Vosteen.jpg';
+import parisspeaker30 from '../speaker images/Kunio Hara.jpg';
+import parisspeaker31 from '../speaker images/Dr Diana Richardson.jpg';
+import parisspeaker32 from '../speaker images/Kimly Hoang-Nakata.jpg';
+import parisspeaker33 from '../speaker images/Kathryn Lancioni.jpg';
+import parisspeaker34 from '../speaker images/Wahida parveen.jpg';
+import parisspeaker35 from '../speaker images/Barb varcl smith.jpg';
+import parisspeaker36 from '../speaker images/Michelle Sweeting D.jpg';
+import parisspeaker37 from '../speaker images/Ann-Marie Emmanuel.jpg';
+import parisspeaker38 from '../speaker images/EnowBisong spouse Njonje Alice Bessem.jpg';
+import parisspeaker39 from '../speaker images/Joanna Sroka.jpg';
+import parisspeaker40 from '../speaker images/Manjinder Kau.jpg';
+import parisspeaker41 from '../speaker images/Annabelle Hartnell.jpg';
+import parisspeaker42 from '../speaker images/Heidy Kallion.jpg';
+import parisspeaker43 from '../speaker images/Tina Collura.jpg';
+
 
 import Footer from '../footer/footer';
 import Events from '../Events/voicenom';
 import SpeakerVideos from '../voiceofnominated/nominatedvideo';
 import Navbar from '../Navbar/navbar';
-
 
 const Homepage = () => {
 
@@ -92,7 +138,10 @@ const Homepage = () => {
     speakers: 0
   });
 
- const speakers = [speaker1, speaker2, speaker3, speaker4, speaker5, speaker6, speaker7];
+ const speakers = [speaker1, speaker2, speaker3, speaker4, speaker5, speaker6, speaker7, parisspeaker, parisspeaker0, parisspeaker1, parisspeaker2, parisspeaker3, parisspeaker4, parisspeaker5, parisspeaker6, parisspeaker7, parisspeaker8, parisspeaker9, parisspeaker10
+                   , parisspeaker11, parisspeaker12, parisspeaker13, parisspeaker14, parisspeaker15, parisspeaker16, parisspeaker17, parisspeaker18, parisspeaker19, parisspeaker20, parisspeaker21, parisspeaker22, parisspeaker23, parisspeaker24, parisspeaker25, parisspeaker26, 
+                  parisspeaker27, parisspeaker28, parisspeaker29, parisspeaker30, parisspeaker31, parisspeaker32, parisspeaker33, parisspeaker34, parisspeaker35, parisspeaker36, parisspeaker37, parisspeaker38, parisspeaker39, parisspeaker40, parisspeaker41, parisspeaker42, parisspeaker43
+                  ];
 
   const [isPaused, setIsPaused] = useState(false);
 
@@ -156,16 +205,8 @@ const Homepage = () => {
     );
   };
 
-const newimages = [ newbs, newbs1, newbs2, newbs3, newbs4, newbs5, newbs7, newbs6, newbs9, newbs10, newbs8, newbs11 ];
-const titles = [ 'Health & Beauty', 'Financial Services', 'Education', 'Chemicals & Petrochemicals', 'Automobile', 'IT & Telecom', 'Retail', 'Tourism & Hospitality', 'Gems & Jewellery', 'Startups', 'Electric Vehicle', 'Real Estate'];
 
-const categories = titles.map((title, index) => ({
-  id: index + 1,
-  title,
-  image: newimages[index]
-}));
-
-  const images = [  img, img0, img1,  img2, img3, img4,  img5, img7,img8,  img9, img10, img11, img6, img12, img13  ];
+  const images = [  img, img1, sepimg2, img2, img3, sepimg1, img4, img13, img5, sepimg7, img7,img8, sepimg0, img9, sepimg8, img10, img11, img6, img12, sepimg, sepimg5, sepimg6, sepimg3,img0  ];
 
   return (
 
@@ -306,6 +347,14 @@ const categories = titles.map((title, index) => ({
       </div>
     </section>
 
+{/* ---------------------------------------------------- */}
+    <section className="ambassador-section">
+      <h2>Our Brand Ambassador</h2>
+      <img src={ambassadorImg} alt="Brand Ambassador" className="ambassador-banner" />
+    </section>
+
+{/* ---------------------------------------------------- */}
+
     <div className="recognition-container">
       <div className="recognition-image">
         <img src={image12} alt="Award ceremony"  />
@@ -324,31 +373,6 @@ const categories = titles.map((title, index) => ({
       </div>
     </div>
 
-    <section className="categories-section">
-      <p className="categories-subtitle">Explore the award categories</p>
-      <h2 className="categories-title">  Small Businesses, Start-ups and Entrepreneurs </h2>
-      <div className="wave-line"></div>
-      <div className="categories-container">
-        <div className="categories-scroll">
-          {categories.map(category => (
-            <div key={category.id} className="category-item">
-              <div className="category-image">
-                <img   src={category.image}   alt={category.title} />
-              </div>
-              <h3>{category.title}</h3>
-            </div>
-          ))}
-          {categories.map(category => (
-            <div key={`${category.id}-duplicate`} className="category-item">
-              <div className="category-image">
-                <img  src={category.image}   alt={category.title} />
-              </div>
-              <h3>{category.title}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
 
       <div id="3minvideo"> 
         <SpeakerVideos/>

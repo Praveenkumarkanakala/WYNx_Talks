@@ -52,13 +52,18 @@ const Navbar = () => {
           <li><a href="/sponsor">SPONSOR</a></li>
           <li><a href="/gallery">GALLERY</a></li>
           <li className="dropdown">
-            <a href="#previous">PREVIOUS SHOWS</a>
-            <ul className="dropdown-menu">
-              {['2024' ].map((year) => (
-                <li key={year}><a href={`#show${year}`}>{year}</a></li>
-              ))}
-            </ul>
-          </li>
+          <a href="#previous">OUR 𝐀DD-𝐎NS</a>
+          <ul className="dropdown-menu">
+            {[
+              { name: 'WINSPIRE', link: ' https://www.winspire.live/' },
+              { name: 'FRENCH CHRONICLES', link: 'https://www.french-chronicles.com/latestnews' }
+            ].map((item) => (
+              <li key={item.name}>
+                <a href={item.link}>{item.name}</a>
+              </li>
+            ))}
+          </ul>
+        </li>
         </ul>
       </div>
     </nav>

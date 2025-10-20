@@ -6,8 +6,8 @@ import Navbar from "../Navbar/navbar";
 const Awardwinners = () => {
     const [selectedYear, setSelectedYear] = useState('2024');
     const awards = {
+        '2025': [   ],
         '2024': [   ],
-        '2023': [   ],
       };
 
     return (
@@ -25,16 +25,16 @@ const Awardwinners = () => {
       <div className="awards-page">
       <div className="year-toggle">
         <button
+          className={selectedYear === '2025' ? 'active' : ''}
+          onClick={() => setSelectedYear('2025')}
+        >
+          2025
+        </button>
+        <button
           className={selectedYear === '2024' ? 'active' : ''}
           onClick={() => setSelectedYear('2024')}
         >
           2024
-        </button>
-        <button
-          className={selectedYear === '2023' ? 'active' : ''}
-          onClick={() => setSelectedYear('2023')}
-        >
-          2023
         </button>
       </div>
       <h1>Anticipating Excellence: Awaiting the Announcement of Award Winners</h1>

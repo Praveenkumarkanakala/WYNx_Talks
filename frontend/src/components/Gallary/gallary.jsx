@@ -17,11 +17,18 @@ import img10 from "../images/galleryn10.png";
 import img11 from "../images/galleryn11.jpg";
 import img12 from "../images/galleryn12.jpg";
 import img13 from "../images/galleryn13.jpg";
+
+import sepnimg from "./sepgallery.jpg";
+import sepnimg0 from "./sepgallery6.jpg";
+import sepnimg1 from "./sepgallery7.jpg";
+import sepnimg2 from "./sepgallery8.jpg";
+import sepnimg3 from "./sepgallery9.jpg";
+import sepnimg4 from "./sepgallery10.jpg";
+import sepnimg5 from "./sepgallery11.jpg";
+
 import wynxBackground from "../images/wynxbgn.jpg";
 
-const images = [
-  img, img0, img1, img2, img3, img4, img5, img7, img8, img9, img10, img11, img6, img12, img13
-];
+const images = [ sepnimg, sepnimg0, sepnimg1, sepnimg2, sepnimg3, sepnimg4, sepnimg5,  img, img0, img1, img2, img3, img4, img5, img7, img8, img9, img10, img11, img6, img12, img13 ];
 
 const HeroSection = styled(Box)(({ theme }) => ({
   position: "relative",

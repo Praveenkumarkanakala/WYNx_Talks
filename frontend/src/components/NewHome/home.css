@@ -902,6 +902,46 @@ body {
   }
 }
 
+/* ------------------------------------------------------------------- */
+
+.ambassador-section {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: -50px;
+}
+
+.ambassador-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b3f7d;
+  margin-bottom: 30px;
+}
+
+/* Rectangle image that covers width */
+.ambassador-banner {
+  width: 80%;
+  max-width: 1000px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ambassador-banner:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ambassador-banner {
+    width: 95%;
+    height: 250px;
+  }
+
+  .ambassador-section h2 {
+    font-size: 1.6rem;
+  }
+}
 
 /* ------------------------------------------------------------------- */
 

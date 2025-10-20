@@ -14,8 +14,7 @@ import Nominatedvideos from "./components/voiceofnominated/nominatedvideo";
 import Checkout from './components/Awardregister/checkout';
 import Newreg from './components/newregister/newreg';
 import PreviewPage from './components/newregister/preview';
-
-
+import Agendapage from './components/Agenda/agenda';
 
 function App() {
   return (
@@ -36,6 +35,7 @@ function App() {
           <Route path="/success" element={<h2>Payment Successful!</h2>} />
           <Route path="/awardsnomination" element={<Newreg/>} />
           <Route path="/preview" element={<PreviewPage />} />
+          <Route path="/parisagenda2026" element={<Agendapage />} />
         </Routes>
     </Router>
   );

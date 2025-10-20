@@ -1,12 +1,10 @@
-// src/ConferencePage.js
 import React, { useState } from 'react';
 import image1 from './conclaveimage2.jpg';
 import image2 from './conclaveimage1.jpg';
 import image3 from './conclaveimage.jpg';
 import { useNavigate } from 'react-router-dom';
 
-
-const ConferenceCard = ({ imageSrc, conferenceName, location, date, showDetails, pdfId }) => {
+const ConferenceCard = ({ imageSrc, conferenceName, location, date, showDetails, pdfId, hasAgenda }) => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({ Name: '', Email: '' });
   const [loading, setLoading] = useState(false);
@@ -83,6 +81,11 @@ const ConferenceCard = ({ imageSrc, conferenceName, location, date, showDetails,
               <button style={styles.detailsButton} onClick={() => setShowModal(true)}>
                 Details
               </button>
+              {hasAgenda && (
+                <button style={styles.detailsButton} onClick={() => navigate('/parisagenda2026')}>
+                  Agenda
+                </button>
+              )}
               <button style={styles.detailsButton} onClick={() => navigate('/awardsnomination')}>
                 Register
               </button>
@@ -148,6 +151,7 @@ const ConferencePage = () => {
         location="Paris, France"
         showDetails={true}
         pdfId="womens-day"
+        hasAgenda={true} 
       />
       <ConferenceCard
         imageSrc={image2}
@@ -156,10 +160,11 @@ const ConferencePage = () => {
         location="New York, USA."
         showDetails={true}
         pdfId="quantum"
+        hasAgenda={false} 
       />
       <ConferenceCard
         imageSrc={image3}
-        conferenceName="International Carnival of Transformational Leadership & Mental Wellness – Empowering Global Changemakers United Worldwide"
+        conferenceName="International Conference on Women’s Conscious Leadership & Wellbeing"
         date="November 02-08, 2026"
         location="Dubai, UAE"
         showDetails={false}
