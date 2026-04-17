@@ -35,7 +35,7 @@ function App() {
           <Route path="/success" element={<h2>Payment Successful!</h2>} />
           <Route path="/awardsnomination" element={<Newreg/>} />
           <Route path="/preview" element={<PreviewPage />} />
-          <Route path="/parisagenda2026" element={<Agendapage />} />
+          <Route path="/newyorkagenda2026" element={<Agendapage />} />
         </Routes>
     </Router>
   );

@@ -2,155 +2,110 @@ import React from "react";
 import { Box, Container, Grid, Typography, styled } from "@mui/material";
 import Navbar from "../Navbar/navbar";
 import Footer from "../footer/footer";
-import img from "../images/galleryn.jpg";
-import img0 from "../images/galleryn0.jpg";
-import img1 from "../images/galleryn1.jpg";
-import img2 from "../images/galleryn2.jpg";
-import img3 from "../images/galleryn3.jpg";
-import img4 from "../images/galleryn4.jpg";
-import img5 from "../images/galleryn5.jpg";
-import img6 from "../images/galleryn6.jpg";
-import img7 from "../images/galleryn7.png";
-import img8 from "../images/galleryn8.jpg";
-import img9 from "../images/galleryn9.jpg";
-import img10 from "../images/galleryn10.png";
-import img11 from "../images/galleryn11.jpg";
-import img12 from "../images/galleryn12.jpg";
-import img13 from "../images/galleryn13.jpg";
-
-import sepnimg from "./sepgallery.jpg";
-import sepnimg0 from "./sepgallery6.jpg";
-import sepnimg1 from "./sepgallery7.jpg";
-import sepnimg2 from "./sepgallery8.jpg";
-import sepnimg3 from "./sepgallery9.jpg";
-import sepnimg4 from "./sepgallery10.jpg";
-import sepnimg5 from "./sepgallery11.jpg";
-
 import wynxBackground from "../images/wynxbgn.jpg";
 
-const images = [ sepnimg, sepnimg0, sepnimg1, sepnimg2, sepnimg3, sepnimg4, sepnimg5,  img, img0, img1, img2, img3, img4, img5, img7, img8, img9, img10, img11, img6, img12, img13 ];
+/* ---------- TOP 4 IMAGES ---------- */
+import top1 from "./Conferencegallery1.jpeg";
+import top2 from "./Conferencegallery2.jpeg";
+import top3 from "./Conferencegallery3.jpeg";
+import top4 from "./Conferencegallery4.jpeg";
+import top5 from "./Conferencegallery5.jpeg";
+import top6 from "./Conferencegallery6.jpeg";
 
-const HeroSection = styled(Box)(({ theme }) => ({
-  position: "relative",
-  width: "100%",
-  height: "70vh",
-  backgroundImage: `url(${wynxBackground})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
+
+/* ---------- EXISTING IMAGES ---------- */
+const galleryImages = [
+  "galleryn.jpg","galleryn0.jpg","galleryn1.jpg","galleryn2.jpg",
+  "galleryn3.jpg","galleryn4.jpg","galleryn5.jpg","galleryn6.jpg",
+  "galleryn7.png","galleryn8.jpg","galleryn9.jpg","galleryn10.png",
+  "galleryn11.jpg","galleryn12.jpg","galleryn13.jpg"
+].map(img => require(`../images/${img}`));
+
+const sepImages = [
+  "sepgallery.jpg","sepgallery6.jpg","sepgallery7.jpg",
+  "sepgallery8.jpg","sepgallery9.jpg","sepgallery10.jpg",
+  "sepgallery11.jpg"
+].map(img => require(`./${img}`));
+/* ---------- ARRAYS ---------- */
+const topImages = [top1, top2, top3, top4, top5, top6];
+
+const images = [  ...sepImages,  galleryImages[0],  galleryImages[1],  galleryImages[2],  galleryImages[3],  galleryImages[4],  galleryImages[5],
+  galleryImages[8],  galleryImages[9],  galleryImages[10],  galleryImages[11],  galleryImages[7],  galleryImages[12],  galleryImages[13]
+];
+
+/* ---------- STYLES ---------- */
+const HeroSection = styled(Box)({
+  height: "60vh",
+  background: `url(${wynxBackground}) center/cover`,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  [theme.breakpoints.down("lg")]: { height: "60vh" },
-  [theme.breakpoints.down("md")]: { height: "50vh" },
-  [theme.breakpoints.down("sm")]: { height: "40vh" },
-}));
+});
 
-const Overlay = styled(Box)(({ theme }) => ({
-  color: "white",
-  textAlign: "center",
-  padding: theme.spacing(2.5),
-  borderRadius: 10,
-  width: "90%",
-  maxWidth: 600,
-  [theme.breakpoints.down("sm")]: { padding: theme.spacing(2) },
-}));
-
-const GalleryItem = styled(Box)(({ theme }) => ({
+const GalleryItem = styled(Box)(({ top }) => ({
   borderRadius: 8,
   overflow: "hidden",
-  boxShadow: theme.shadows[4],
-  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-  height: 250,
-  "&:hover": {
-    transform: "scale(1.03)",
-    boxShadow: theme.shadows[10],
-  },
+  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+  height: top ? 300 : 250,   // slightly taller for top images
+
   "& img": {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    transition: "transform 0.3s ease",
-    "&:hover": {
-      transform: "scale(1.1)",
-    },
+    objectPosition: top ? "top center" : "center",  // 👈 key fix
+    transition: ".3s",
+  },
+
+  "&:hover img": {
+    transform: "scale(1.05)",
   },
 }));
 
-const Gallery = () => {
-  return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
-      <Navbar />
-      <HeroSection>
-        <Overlay>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: "1.5rem", sm: "2rem", md: "2.2rem", lg: "2.4rem" },
-              color: "white",
-              fontWeight: "bold",
-            }}
-          >
-            EVENT GALLERY
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem", lg: "1.2rem" },
-              mt: 1,
-              color: "white",
-            }}
-          >
-            Home / Event Gallery
-          </Typography>
-        </Overlay>
-      </HeroSection>
-      <Container sx={{ py: 5, textAlign: "center" }}>
-        <Box>
-          <Typography
-            variant="subtitle1"
-            sx={{ fontSize: { xs: 16, md: 18 }, color: "grey.600", mb: 1, fontWeight: 500 }}
-          >
-            Previous Moments
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: 28, md: 36 },
-              color: "#5a2d82",
-              mb: 2,
-              fontWeight: "bold",
-            }}
-          >
-            Event Gallery
-          </Typography>
-          <Box
-            sx={{
-              width: { xs: 40, md: 60 },
-              height: { xs: 3, md: 4 },
-              bgcolor: "#5a2d82",
-              mx: "auto",
-              mb: 5,
-              borderRadius: 2,
-            }}
-          />
-        </Box>
-        <Grid container spacing={{ xs: 1, md: 2 }}>
-          {images.map((image, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <GalleryItem>
-                <img src={image} alt={`Event ${index + 1}`} />
-              </GalleryItem>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-      <Footer />
-    </Box>
-  );
-};
+/* ---------- COMPONENT ---------- */
+const Gallery = () => (
+  <Box>
+    <Navbar />
+
+    <HeroSection>
+      <Box textAlign="center" color="white">
+        <Typography variant="h4" fontWeight="bold">
+          EVENT GALLERY
+        </Typography>
+        <Typography>Home / Event Gallery</Typography>
+      </Box>
+    </HeroSection>
+
+    <Container sx={{ py: 5, textAlign: "center" }}>
+      <Typography color="gray">Previous Moments</Typography>
+      <Typography variant="h4" fontWeight="bold" color="#5a2d82">
+        Past Conference Gallery
+      </Typography>
+
+      {/* -------- FIRST 4 IMAGES (2 PER ROW) -------- */}
+      <Grid container spacing={2} mt={3} mb={2}>
+        {topImages.map((img, i) => (
+          <Grid item xs={12} sm={6} key={i}>
+            <GalleryItem top>
+              <img src={img} alt={`Top ${i}`} />
+            </GalleryItem>
+          </Grid>
+        ))}
+      </Grid>
+
+      {/* -------- REMAINING IMAGES -------- */}
+      <Grid container spacing={2}>
+        {images.map((img, i) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+            <GalleryItem>
+              <img src={img} alt={`Event ${i}`} />
+            </GalleryItem>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+
+    <Footer />
+  </Box>
+);
 
 export default Gallery;
-
-
-
-
