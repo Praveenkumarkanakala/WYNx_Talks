@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Container, Grid, Typography, styled } from "@mui/material";
-import Navbar from "../Navbar/navbar";
-import Footer from "../footer/footer";
-import wynxBackground from "../images/wynxbgn.jpg";
+import Navbar from "../../Pages/NewNavbar/Navbar";
+import NewFooter from "../../Pages/Footer/footer";
+import "./gallery.css";
 
-/* ---------- TOP 4 IMAGES ---------- */
+import heroImg from "../../Pages/Landingpage/Heroimage.png"; 
+
+/* ---------- TOP 6 IMAGES ---------- */
 import top1 from "./Conferencegallery1.jpeg";
 import top2 from "./Conferencegallery2.jpeg";
 import top3 from "./Conferencegallery3.jpeg";
@@ -12,100 +13,114 @@ import top4 from "./Conferencegallery4.jpeg";
 import top5 from "./Conferencegallery5.jpeg";
 import top6 from "./Conferencegallery6.jpeg";
 
-
 /* ---------- EXISTING IMAGES ---------- */
 const galleryImages = [
   "galleryn.jpg","galleryn0.jpg","galleryn1.jpg","galleryn2.jpg",
   "galleryn3.jpg","galleryn4.jpg","galleryn5.jpg","galleryn6.jpg",
-  "galleryn7.png","galleryn8.jpg","galleryn9.jpg","galleryn10.png",
-  "galleryn11.jpg","galleryn12.jpg","galleryn13.jpg"
-].map(img => require(`../images/${img}`));
+  "galleryn7.png","galleryn8.jpg","galleryn9.jpg", "galleryn11.jpg",
+  "galleryn12.jpg","galleryn13.jpg" ].map(img => require(`../images/${img}`));
 
 const sepImages = [
   "sepgallery.jpg","sepgallery6.jpg","sepgallery7.jpg",
   "sepgallery8.jpg","sepgallery9.jpg","sepgallery10.jpg",
-  "sepgallery11.jpg"
-].map(img => require(`./${img}`));
-/* ---------- ARRAYS ---------- */
+  "sepgallery11.jpg" ].map(img => require(`./${img}`));
+
 const topImages = [top1, top2, top3, top4, top5, top6];
 
-const images = [  ...sepImages,  galleryImages[0],  galleryImages[1],  galleryImages[2],  galleryImages[3],  galleryImages[4],  galleryImages[5],
-  galleryImages[8],  galleryImages[9],  galleryImages[10],  galleryImages[11],  galleryImages[7],  galleryImages[12],  galleryImages[13]
+const images = [
+  ...sepImages,
+  galleryImages[0], galleryImages[1], galleryImages[2], galleryImages[3],
+  galleryImages[4], galleryImages[5], galleryImages[8], galleryImages[9],
+  galleryImages[10], galleryImages[11], galleryImages[7],
+  galleryImages[12], galleryImages[13]
 ];
 
-/* ---------- STYLES ---------- */
-const HeroSection = styled(Box)({
-  height: "60vh",
-  background: `url(${wynxBackground}) center/cover`,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-});
+export default function Gallery() {
+  return (
+    <div className="gal-root">
+      <Navbar />
+      <div style={{ height: 68 }} />
 
-const GalleryItem = styled(Box)(({ top }) => ({
-  borderRadius: 8,
-  overflow: "hidden",
-  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-  height: top ? 300 : 250,   // slightly taller for top images
+      {/* ════ HERO ════ */}
+      <section className="gal-hero">
+        <div className="gal-glow gal-glow-1" />
+        <div className="gal-glow gal-glow-2" />
+        <div className="gal-glow gal-glow-3" />
 
-  "& img": {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    objectPosition: top ? "top center" : "center",  // 👈 key fix
-    transition: ".3s",
-  },
+        {/* LEFT */}
+        <div className="gal-hero-left">
+          <h1 className="gal-hero-title gal-anim gal-a2">
+            Our <span className="gal-accent">Event </span> Gallery
+          </h1>
+          <p className="gal-hero-sub gal-anim gal-a3">
+            Relive the energy, connections, and defining moments from our
+            world-class conferences — captured from the stage and beyond.
+          </p>
+          <div className="gal-stats gal-anim gal-a4">
+            {[["500+","Photos"],["30+","Events"],["120+","Awards"],["50K+","Attendees"]]
+              .map(([val, lbl], i, a) => (
+                <div key={lbl} style={{ display:"flex", alignItems:"center" }}>
+                  <div className="gal-stat">
+                    <span className="gal-stat-val">{val}</span>
+                    <span className="gal-stat-lbl">{lbl}</span>
+                  </div>
+                  {i < a.length - 1 && <div className="gal-stat-div" />}
+                </div>
+              ))}
+          </div>
+        </div>
 
-  "&:hover img": {
-    transform: "scale(1.05)",
-  },
-}));
+        {/* RIGHT */}
+        <div className="gal-hero-right">
+          <div className="gal-dot-grid" />
+          <div className="gal-orbit-wrap">
+            <div className="gal-ring gal-ring-1" />
+            <div className="gal-ring gal-ring-2" />
+            <div className="gal-ring gal-ring-3" />
+            <div className="gal-ground-glow" />
+            <img
+              src={heroImg}
+              alt="WYNx Event"
+              className="gal-hero-img"
+            />
+          </div>
+        </div>
+      </section>
 
-/* ---------- COMPONENT ---------- */
-const Gallery = () => (
-  <Box>
-    <Navbar />
+      {/* ════ GALLERY ════ */}
+      <section className="gal-section">
+        <div className="gal-container">
+          {/* <div className="gal-eyebrow">Highlights from WYNx Talks</div> */}
+          <h2 className="gal-section-title">
+            Highlights from  <span className="gal-accent">WYNx Talks</span>
+          </h2>
+          <div className="gal-divider" />
+          <p className="gal-section-sub">
+            Award-winning moments, breakthrough conversations, and the faces
+            that define the WYNx movement.
+          </p>
 
-    <HeroSection>
-      <Box textAlign="center" color="white">
-        <Typography variant="h4" fontWeight="bold">
-          EVENT GALLERY
-        </Typography>
-        <Typography>Home / Event Gallery</Typography>
-      </Box>
-    </HeroSection>
+          {/* Top 6 — 2 per row */}
+          <div className="gal-top-grid">
+            {topImages.map((img, i) => (
+              <div className="gal-img-item gal-img-top" key={i}>
+                <img src={img} alt={`Conference ${i + 1}`} />
+              </div>
+            ))}
+          </div>
 
-    <Container sx={{ py: 5, textAlign: "center" }}>
-      <Typography color="gray">Previous Moments</Typography>
-      <Typography variant="h4" fontWeight="bold" color="#5a2d82">
-        Past Conference Gallery
-      </Typography>
+          {/* Remaining — 4 per row */}
+          <div className="gal-main-grid">
+            {images.map((img, i) => (
+              <div className="gal-img-item gal-img-main" key={i}>
+                <img src={img} alt={`Event ${i + 1}`} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* -------- FIRST 4 IMAGES (2 PER ROW) -------- */}
-      <Grid container spacing={2} mt={3} mb={2}>
-        {topImages.map((img, i) => (
-          <Grid item xs={12} sm={6} key={i}>
-            <GalleryItem top>
-              <img src={img} alt={`Top ${i}`} />
-            </GalleryItem>
-          </Grid>
-        ))}
-      </Grid>
-
-      {/* -------- REMAINING IMAGES -------- */}
-      <Grid container spacing={2}>
-        {images.map((img, i) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
-            <GalleryItem>
-              <img src={img} alt={`Event ${i}`} />
-            </GalleryItem>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
-
-    <Footer />
-  </Box>
-);
-
-export default Gallery;
+      <NewFooter />
+    </div>
+  );
+}

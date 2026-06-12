@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Base nav bar ─────────────────────────────────── */
+.wynx-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  font-family: 'Inter', sans-serif;
+
+  background: rgba(10, 26, 20, 0.95);          /* ← changed from 0 to 0.95 */
+  border-bottom: 1px solid rgba(200, 146, 42, 0.15);  /* ← changed from 0 to 0.15 */
+  backdrop-filter: blur(20px);                  /* ← changed from 0px */
+  -webkit-backdrop-filter: blur(20px);          /* ← changed from 0px */
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* ── Scrolled state ───────────────────────────────── */
+.wynx-nav--scrolled {
+  background: rgba(10, 26, 20, 0.95);
+  border-bottom: 1px solid rgba(200, 146, 42, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(200, 146, 42, 0.08);
+}
+
+/* ── Inner layout ─────────────────────────────────── */
+.wynx-nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ══════════════════════════════════════════════════
+   ── LOGO BLOCK ────────────────────────────────────
+   ══════════════════════════════════════════════════ */
+
+.wynx-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.wynx-nav-logo-img-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wynx-nav-logo-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 12px;
+  background: radial-gradient(ellipse at center, rgba(200, 146, 42, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.wynx-nav-logo:hover .wynx-nav-logo-img-wrap::before {
+  opacity: 1;
+}
+
+.wynx-nav-logo-img {
+  height: 46px;
+  width: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px rgba(200, 146, 42, 0.2));
+  transition: filter 0.3s;
+}
+
+.wynx-nav-logo:hover .wynx-nav-logo-img {
+  filter: drop-shadow(0 0 16px rgba(200, 146, 42, 0.4));
+}
+
+.wynx-nav-logo-divider {
+  width: 1.5px;
+  height: 36px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(200, 146, 42, 0.65) 30%,
+    rgba(200, 146, 42, 0.65) 70%,
+    transparent 100%
+  );
+  margin: 0 14px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.wynx-nav-logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  line-height: 1;
+}
+
+.wynx-nav-logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #c8922a;
+  letter-spacing: 2.5px;
+  line-height: 1;
+  text-shadow:
+    0 0 18px rgba(200, 146, 42, 0.3),
+    0 0 36px rgba(200, 146, 42, 0.12);
+  transition: text-shadow 0.3s;
+}
+
+.wynx-nav-logo:hover .wynx-nav-logo-name {
+  text-shadow:
+    0 0 24px rgba(200, 146, 42, 0.5),
+    0 0 48px rgba(200, 146, 42, 0.2);
+}
+
+.wynx-nav-logo-sub {
+  font-size: 7.5px;
+  color: rgba(255, 255, 255, 0.32);
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ── Desktop link list ────────────────────────────── */
+.wynx-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ── Individual nav link ──────────────────────────── */
+.wynx-nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  padding-bottom: 3px;
+  transition: color 0.2s;
+}
+
+.wynx-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, #c8922a, rgba(200, 146, 42, 0.4));
+  border-radius: 2px;
+  transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wynx-nav-link:hover {
+  color: #c8922a;
+}
+
+.wynx-nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Register CTA button ──────────────────────────── */
+.wynx-nav-register-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c8922a;
+  color: #0a1a14;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.wynx-nav-register-btn:hover {
+  background: #dba338;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(200, 146, 42, 0.35);
+}
+
+.wynx-nav-register-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Hamburger button ─────────────────────────────── */
+.wynx-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: 1px solid rgba(200, 146, 42, 0.15);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.wynx-nav-hamburger:hover {
+  background: rgba(200, 146, 42, 0.08);
+  border-color: rgba(200, 146, 42, 0.35);
+}
+
+.wynx-nav-ham-line {
+  display: block;
+  width: 20px;
+  height: 1.8px;
+  background: #c8922a;
+  border-radius: 2px;
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s,
+    width 0.3s;
+  transform-origin: center;
+}
+
+.wynx-nav-hamburger--open .wynx-nav-ham-line--1 {
+  transform: translateY(7px) rotate(45deg);
+}
+.wynx-nav-hamburger--open .wynx-nav-ham-line--2 {
+  opacity: 0;
+  width: 0;
+}
+.wynx-nav-hamburger--open .wynx-nav-ham-line--3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ────────────────────────────────── */
+.wynx-nav-drawer {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
+  background: rgba(10, 26, 20, 0.98);
+  border-top: 1px solid rgba(200, 146, 42, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.wynx-nav-drawer--open {
+  max-height: 560px;
+  opacity: 1;
+}
+
+.wynx-nav-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 28px 28px;
+  gap: 2px;
+}
+
+.wynx-nav-drawer-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: color 0.2s, padding-left 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wynx-nav-drawer-link::before {
+  content: '→';
+  font-size: 12px;
+  color: #c8922a;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.wynx-nav-drawer-link:hover {
+  color: #c8922a;
+  padding-left: 6px;
+}
+
+.wynx-nav-drawer-link:hover::before {
+  opacity: 1;
+}
+
+.wynx-nav-drawer-link:last-of-type {
+  border-bottom: none;
+}
+
+.wynx-nav-register-btn--mobile {
+  margin-top: 16px;
+  width: 100%;
+  padding: 13px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+/* ══════════════════════════════════════════════════
+   ── DESKTOP DROPDOWN ──────────────────────────────
+   ══════════════════════════════════════════════════ */
+
+.wynx-nav-dropdown-wrap {
+  position: relative;
+}
+
+/* Link with chevron icon */
+.wynx-nav-link--has-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 3px;
+}
+
+/* Chevron icon */
+.wynx-nav-chevron {
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.wynx-nav-dropdown-wrap:hover .wynx-nav-chevron {
+  transform: rotate(180deg);
+  color: #c8922a;
+}
+
+/* Dropdown panel */
+.wynx-nav-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 200px;
+  background: rgba(10, 26, 20, 0.97);
+  border: 1px solid rgba(200, 146, 42, 0.18);
+  border-radius: 10px;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(200, 146, 42, 0.08) inset;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 300;
+}
+
+/* Invisible bridge so cursor can move to dropdown */
+.wynx-nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+.wynx-nav-dropdown-wrap:hover .wynx-nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.wynx-nav-dropdown-inner {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Dropdown items */
+.wynx-nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  transition: background 0.18s, color 0.18s;
+}
+
+.wynx-nav-dropdown-item:hover {
+  background: rgba(200, 146, 42, 0.1);
+  color: #c8922a;
+}
+
+/* Gold dot accent */
+.wynx-nav-dropdown-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(200, 146, 42, 0.45);
+  flex-shrink: 0;
+  transition: background 0.18s, transform 0.18s;
+}
+
+.wynx-nav-dropdown-item:hover .wynx-nav-dropdown-dot {
+  background: #c8922a;
+  transform: scale(1.3);
+}
+
+/* ══════════════════════════════════════════════════
+   ── MOBILE ACCORDION ──────────────────────────────
+   ══════════════════════════════════════════════════ */
+
+.wynx-nav-drawer-accordion {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Toggle button inherits drawer-link styles but is a <button> */
+.wynx-nav-drawer-accordion-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: none !important; /* override drawer-link border since accordion wraps it */
+  padding-right: 0;
+}
+
+/* Arrow hidden by default, shown by drawer-link:hover rules */
+.wynx-nav-drawer-arrow {
+  font-size: 12px;
+  color: #c8922a;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.wynx-nav-drawer-accordion-toggle:hover .wynx-nav-drawer-arrow {
+  opacity: 1;
+}
+
+/* We reuse .wynx-nav-drawer-link styles but override the ::before since
+   arrow is an explicit <span> here */
+.wynx-nav-drawer-accordion-toggle::before {
+  display: none;
+}
+
+/* Drawer chevron */
+.wynx-nav-drawer-chevron {
+  flex-shrink: 0;
+  color: rgba(200, 146, 42, 0.5);
+  margin-left: auto;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s;
+}
+
+.wynx-nav-drawer-accordion-toggle--open .wynx-nav-drawer-chevron {
+  transform: rotate(180deg);
+  color: #c8922a;
+}
+
+.wynx-nav-drawer-accordion-toggle--open {
+  color: #c8922a;
+  padding-left: 6px;
+}
+
+/* Subnav panel */
+.wynx-nav-drawer-subnav {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s ease;
+  background: rgba(200, 146, 42, 0.04);
+  border-radius: 0 0 8px 8px;
+}
+
+.wynx-nav-drawer-subnav--open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* Sub-links */
+.wynx-nav-drawer-sublink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px 11px 24px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: color 0.18s, padding-left 0.18s, background 0.18s;
+}
+
+.wynx-nav-drawer-sublink::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(200, 146, 42, 0.4);
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+
+.wynx-nav-drawer-sublink:last-child {
+  border-bottom: none;
+}
+
+.wynx-nav-drawer-sublink:hover {
+  color: #c8922a;
+  padding-left: 30px;
+  background: rgba(200, 146, 42, 0.06);
+}
+
+.wynx-nav-drawer-sublink:hover::before {
+  background: #c8922a;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .wynx-nav-links {
+    display: none;
+  }
+
+  .wynx-nav-hamburger {
+    display: flex;
+  }
+
+  .wynx-nav-drawer {
+    display: block;
+  }
+
+  .wynx-nav-inner {
+    height: 62px;
+    padding: 0 20px;
+  }
+
+  .wynx-nav-logo-img {
+    height: 38px;
+  }
+
+  .wynx-nav-logo-name {
+    font-size: 18px;
+  }
+
+  .wynx-nav-logo-divider {
+    height: 28px;
+    margin: 0 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .wynx-nav-drawer {
+    display: none !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .wynx-nav-logo-sub {
+    display: none;
+  }
+
+  .wynx-nav-logo-divider {
+    display: none;
+  }
+}

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Events from '../Events/voicenom';
-import SpeakerVideos from '../voiceofnominated/nominatedvideo';
 import Navbar from '../Navbar/navbar';
 
 import ambassadorImg from '../images/WYNx Brand ambassodor.jpg'
@@ -314,9 +313,9 @@ const statsData = [
     </div>
 
 
-      <div id="3minvideo"> 
+      {/* <div id="3minvideo"> 
         <SpeakerVideos/>
-      </div>
+      </div> */}
 
  {/* ----------------------------------------- */}
 
