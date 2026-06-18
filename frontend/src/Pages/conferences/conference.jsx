@@ -11,6 +11,7 @@ import eventimg3 from "../conferences/conclaveimage.jpg";
 import eventimg4 from "../conferences/conclaveimg.png";
 import eventimg5 from "../conferences/conclaveimg1.png";
 import eventimg6 from "../conferences/conclaveimg2.png";
+import eventimg7 from "../conferences/conclaveimg3.png";
 
 
 
@@ -68,7 +69,7 @@ const ALL_EVENTS = [
   },
   {
     id: "wynx-08",
-    image: eventimg,
+    image: eventimg7,
     title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2027",
     date: "March 08–14, 2027",
     location: "New York, USA",

@@ -17,7 +17,7 @@ export default function RefundPolicy() {
           <div className="rf-hero__left">
             <h1 className="rf-hero__title">Refund <span className="rf-hero__title-gold">Policy</span></h1>
             <p className="rf-hero__sub">
-              Clear guidelines on cancellations, credits, and refund eligibility for all WYNx Conference registrants.
+              Clear guidelines on cancellations, credits, and refund eligibility for all WYNx Award Winning Talks registrants.
             </p>
             <a href="mailto:contact@wynxtalks.com" className="rf-hero__cta">
               Questions? Contact Us
@@ -72,7 +72,7 @@ export default function RefundPolicy() {
               We kindly inform you that in the unfortunate event of cancellation due to natural calamities,
               refunds will not be possible. However, the fee will be credited toward your registration for
               subsequent events. In case you no longer wish to attend the Conference, your registration fee
-              will be transferred to subsequent events organised by WYNx Conferences. We appreciate your
+              will be transferred to subsequent events organised by WYNx Award Winning Talks. We appreciate your
               understanding and support.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function RefundPolicy() {
                   <a href="mailto:contact@wynxtalks.com" className="rf-link">
                     contact@wynxtalks.com
                   </a>{" "}
-                  notifying the WYNx Conferences group of your decision.
+                  notifying the WYNx Award Winning Talks group of your decision.
                 </p>
               </div>
             </div>
