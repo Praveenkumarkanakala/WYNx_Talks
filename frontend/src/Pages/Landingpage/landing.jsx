@@ -156,7 +156,7 @@ const SPEAKER_IMAGES = [   "regspeaker.jpg",  "regspeaker1.jpg",  "regspeaker2.j
   "Karima GUERFALI LAZZEM.jpg",  "Limor Jasinski.jpg",  "Lissette Valle.jpg",  "Nikki Langman.jpg",  "Tristina Anderson.jpg",  "Margaret Vuijk-Cieslak.jpg",  "Bente Vosteen.jpg",
   "Kunio Hara.jpg",  "Dr Diana Richardson.jpg",  "Kimly Hoang-Nakata.jpg",  "Kathryn Lancioni.jpg",  "Wahida parveen.jpg",  "Barb varcl smith.jpg",  "Michelle Sweeting D.jpg",
   "Ann-Marie Emmanuel.jpg",  "EnowBisong spouse Njonje Alice Bessem.jpg",  "Joanna Sroka.jpg",  "Manjinder Kau.jpg",  "Annabelle Hartnell.jpg",  "Heidy Kallion.jpg",  "Tina Collura.jpg",
-  "Dr. Rita Lustgarten.jpeg",  "Steve Conway.jpeg",  "Hila Lauterbach.jpeg",  "Ellen Duffey Lueb.jpeg",  "Sabira Arefin.jpeg"
+  "Dr. Rita Lustgarten.jpeg",  "Steve Conway.jpeg",  "Hila Lauterbach.jpeg",  "Ellen Duffey Lueb.jpeg",  "Sabira Arefin.jpeg", "David Goldberg.jpeg","Paul Peters.jpeg", "Rebecca House.jpeg", "Roger Nakata, D.O.jpeg"
 ].map(img => require(`../../components/speaker images/${img}`));
 
 /* ─── Icon helpers ───────────────────────────────────────────────── */
@@ -483,7 +483,7 @@ export default function WYNxLanding() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="5 3 19 12 5 21 5 3" />
               </svg>
-              Watch Highlight Reel
+              Watch Highlights
             </button>
           </div>
           <div className="wy-hero-stats wy-anim wy-anim-4">

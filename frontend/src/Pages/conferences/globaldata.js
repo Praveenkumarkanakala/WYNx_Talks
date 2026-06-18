@@ -120,6 +120,24 @@ const wynxConferences = [
 ],
     fullDescription: "Theme:  Elevating Voices, Inspiring Change",
   },
+
+  {
+    id: "wynx-08",
+    title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026",
+    date: "July 20–26, 2026",
+    location: "New York, USA",
+    city: "New York",
+    country: "USA",
+    category: "women-leadership",
+    description:
+      "The QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026, hosted in New York, USA, is a pioneering international gathering dedicated to advancing the future of women’s leadership through the lens of psychology, mental health, and human potential. Bringing together researchers, psychologists, educators, healthcare professionals, executives, and emerging leaders, the conclave explores how mental wellbeing, cognitive resilience, and emotional intelligence are shaping the next generation of influential women leaders.\n\nThrough thought-provoking keynotes, scientific discussions, and collaborative networking opportunities, participants will gain valuable insights into clinical psychology, neuroscience, leadership development, trauma recovery, workplace wellbeing, and psychological resilience. Designed to bridge research with real-world impact, the conclave empowers attendees to drive positive change, strengthen leadership capacity, and build healthier communities and organizations worldwide.",
+    themes: [
+  "Psychological Research","Clinical Psychology","Counseling Techniques","Mental Health Advocacy","Neuroscience","Behavioral Interventions","Trauma Recovery","Mindfulness","Leadership in Psychology","Digital Mental Health",
+  "Psychological Assessment","Child Psychology","Adolescent Psychology","Adult Mental Health","Geriatric Psychology","Cross-Cultural Psychology","Community Psychology","Holistic Psychology","Cognitive Behavioral Therapy","Emotional Intelligence",
+  "Stress Management","Addiction Psychology","Positive Psychology","Psychopharmacology","Neuroplasticity","Psychological Resilience","Psychology of Aging","Forensic Psychology","Educational Psychology","Workplace Mental Health"
+],
+    fullDescription: "Theme: Power Reimagined: The Science of Influence, Intelligence, and Impact",
+  },
 ];
 
 const conferenceSeed = [ ...wynxConferences ];

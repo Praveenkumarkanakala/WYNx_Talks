@@ -15,7 +15,7 @@ const categoryLabels = {
 const pricingPlans = [
   {
     id: 1,
-    badge: "WYNx Award Talk + Media",
+    badge: "WYNx Award Winning Talk + Media Coverage",
     price: "$999",
     period: "per person",
     tagline: "Award-winning talk with media coverage",
@@ -35,10 +35,10 @@ const pricingPlans = [
   },
   {
     id: 3,
-    badge: "Physical + Hotel",
+    badge: "Physical Keynote Speaker",
     price: "$1099",
     period: "per person",
-    tagline: "Full speaker experience with 2-night stay",
+    tagline: "Keynote speaker experience with 2-night stay",
     description: "WYNx Award-Winning Talk Physical Speaker Registration with 2 Nights Hotel Stay and Abstract Talk Publication in Peercite International Journal of Women Leadership & Mental Health.",
     features: ["Physical speaker registration", "Award-Winning Talk slot", "2 nights hotel stay", "Peercite journal publication"],
     highlight: false,
@@ -55,28 +55,37 @@ const pricingPlans = [
   },
   {
     id: 5,
-    badge: "Virtual Award",
+    badge: "Keynote Virtual Award Winning Talk",
     price: "$499",
     period: "per person",
-    tagline: "Virtual award talk + magazine cover story",
+    tagline: "Keynote Virtual award Winning talk + magazine cover story",
     description: "WYNx Virtual Award-Winning Talk Registration with Magazine Cover Story and Abstract Talk Publication in Peercite International Journal of Women Leadership & Mental Health.",
     features: ["Virtual Award-Winning Talk", "Magazine Cover Story feature", "Peercite journal publication", "30-day recording access"],
     highlight: false,
   },
   {
     id: 6,
-    badge: "Virtual Speaker",
+    badge: "Virtual Award Winning Talk",
     price: "$399",
     period: "per person",
-    tagline: "Online speaker registration with publication",
+    tagline: "Virtual speaker Award Winning Talk",
     description: "WYNx Virtual Online Speaker Registration with Abstract Talk Publication in Peercite International Journal of Women Leadership & Mental Health.",
     features: ["Virtual speaker registration", "Online session access", "Peercite journal publication", "Digital conference kit"],
     highlight: false,
   },
 ];
 
-/* ── Session icons — cycles through for visual variety ── */
 const SESSION_ICONS = ["◈", "◆", "▲", "●", "◉", "★", "◇", "▶"];
+
+const renderBadge = (badge) => {
+  if (!badge.includes("WYNx")) return badge;
+  const parts = badge.split("WYNx");
+  return (
+    <>
+      {parts[0]}WYN<span style={{ fontSize: "0.70em", verticalAlign: "middle" }}>x</span>{parts[1]}
+    </>
+  );
+};
 
 export default function WynxEventDetail() {
   const { id } = useParams();
@@ -253,7 +262,7 @@ export default function WynxEventDetail() {
                   {plan.highlight && (
                     <span className="wynx-ed-price-card__popular">Most Popular</span>
                   )}
-                  <span className="wynx-ed-price-card__badge">{plan.badge}</span>
+                  <span className="wynx-ed-price-card__badge">{renderBadge(plan.badge)}</span>
                   <div className="wynx-ed-price-card__price-row">
                     <span className="wynx-ed-price-card__price">{plan.price}</span>
                     <span className="wynx-ed-price-card__period">{plan.period}</span>
@@ -287,7 +296,7 @@ export default function WynxEventDetail() {
                   {plan.highlight && (
                     <span className="wynx-ed-price-card__popular">Most Popular</span>
                   )}
-                  <span className="wynx-ed-price-card__badge">{plan.badge}</span>
+                  <span className="wynx-ed-price-card__badge">{renderBadge(plan.badge)}</span>
                   <div className="wynx-ed-price-card__price-row">
                     <span className="wynx-ed-price-card__price">{plan.price}</span>
                     <span className="wynx-ed-price-card__period">{plan.period}</span>

@@ -67,6 +67,17 @@ const ALL_EVENTS = [
     category: "Leadership",
   },
   {
+    id: "wynx-08",
+    image: eventimg,
+    title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2027",
+    date: "March 08–14, 2027",
+    location: "New York, USA",
+    brochure: brochure4,
+    rating: "4.9",
+    tags: ["Leadership", "Global Networking", "Award Winning"],
+    category: "Leadership",
+  },
+  {
     id: "wynx-05",
     image: eventimg4,
     title: "Quantum Tech Women Leadership, AI Health Conclave",

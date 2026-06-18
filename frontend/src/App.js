@@ -24,6 +24,10 @@ import Aboutpage from "./Pages/About/about";
 import Conferencecards from "./Pages/conferences/conference";
 import ConferencePage from "./Pages/conferences/insideconference";
 
+import RefundPolicy from "./Pages/Policyconditions/refund";
+import PrivacyPolicy from "./Pages/Policyconditions/privacy";
+import TermsConditions from "./Pages/Policyconditions/termsconditions";
+
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -55,6 +59,10 @@ function App() {
           <Route path='/about' element={<Aboutpage />} />
           <Route path='/conferences' element={<Conferencecards />} />
           <Route path="/wynxconferences/:id" element={<ConferencePage />} />
+
+          <Route path="/refundpolicy" element={<RefundPolicy />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/termsconditions" element={<TermsConditions />} />
           </Routes>
     </Router>
   );

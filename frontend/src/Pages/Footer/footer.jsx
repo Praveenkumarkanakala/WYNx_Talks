@@ -241,12 +241,16 @@ const Footer = () => {
           <div className="wynx-footer-bottom">
             <p className="wynx-footer-copyright">
               © 2024 All Rights Reserved. Developed By{" "}
-              <a href="#" className="wynx-footer-copyright-link">WYNx Award Winning Talks</a>
+              <a href="/" className="wynx-footer-copyright-link">WYNx Award Winning Talks</a>
             </p>
             <div className="wynx-footer-bottom-links">
-              <a href="#" className="wynx-footer-bottom-link">Privacy Policy</a>
+              <a href="/privacypolicy" className="wynx-footer-bottom-link">Privacy Policy</a>
               <span className="wynx-footer-bottom-sep">·</span>
-              <a href="#" className="wynx-footer-bottom-link">Terms &amp; Conditions</a>
+
+              <a href="/refundpolicy" className="wynx-footer-bottom-link">Refund Policy</a>
+              <span className="wynx-footer-bottom-sep">·</span>
+
+              <a href="/termsconditions" className="wynx-footer-bottom-link">Terms &amp; Conditions</a>
             </div>
           </div>
 
