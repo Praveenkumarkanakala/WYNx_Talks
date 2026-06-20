@@ -1,219 +1,167 @@
 require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
-// const nodemailer = require("nodemailer");
-const fs = require("fs");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const Stripe = require("stripe");
-const path = require("path");
-const multer = require("multer");
 
-const upload = multer({ dest: 'uploads/' });
+if (!process.env.STRIPE_SECRET_KEY) {
+  console.error("FATAL: STRIPE_SECRET_KEY is missing from your .env file.");
+  process.exit(1);
+}
+
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
-app.use(cors());
+// During local dev
+// app.use(cors());
+
+// For production
+app.use(cors({
+  origin: "https://wynxtalks.com",
+}));
+
 app.use(bodyParser.json());
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/paymentDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log("MongoDB Connected"))
-  .catch(err => console.error("MongoDB Connection Error:", err));
+mongoose.connect("mongodb://127.0.0.1:27017/paymentDB")
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.error("MongoDB Connection Error:", err.message));
 
+/* ─── Transaction schema ────────────────────────────────────── */
 const transactionSchema = new mongoose.Schema({
-  amount: Number,
-  paymentStatus: String,
-  transactionId: String,
-  billingDetails: Object,
-  date: { type: Date, default: Date.now }
+  amount:         Number,
+  paymentStatus:  String,
+  transactionId:  String,
+  billingDetails: Object,       // stores full registration + package info
+  date:           { type: Date, default: Date.now },
 });
 
 const Transaction = mongoose.model("Transaction", transactionSchema);
 
-// const CarnivaleventSchema = new mongoose.Schema({
-//   Name: String,
-//   Email: String,
-//   date: { type: Date, default: Date.now }
-// });
-
-// const Carnivalevent = mongoose.model("Carnivalevent", CarnivaleventSchema);
-
-// const transporter = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS
-//   },
-// });
-
-// app.post("/carnival-conclave", async (req, res) => {
-//   const { Name, Email } = req.body;
-//   const carnivalweek = new Carnivalevent({ Name, Email });
-
-//   try {
-//     await carnivalweek.save();
-
-//     await transporter.sendMail({
-//       from: '"Carnival Submission" <wynxtalks@gmail.com>',
-//       to: "wynxtalks@gmail.com",
-//       subject: "New Carnival Submission",
-//       html: `<p><strong>Name:</strong> ${Name}</p><p><strong>Email:</strong> ${Email}</p>`
-//     });
-
-//     res.status(200).json({ message: "Registration successful", email: Email, name: Name });
-//   } catch (error) {
-//     console.error("Error in /carnival-conclave:", error);
-//     res.status(500).json({ error: error.message });
-//   }
-// });
-
-// app.post("/send-pdf", async (req, res) => {
-//   const { email, name, pdfId } = req.body;
-
-//   try {
-//     if (!email || !name || !pdfId) {
-//       return res.status(400).json({ error: "Email, name, and pdfId are required" });
-//     }
-
-//     const brochureDetails = {
-//       "womens-day": {
-//         filename: "WYNx Paris Brochure.pdf",
-//         subject: "Welcome to WYNx Award-Winning Talks 2026",
-//         html: `<h2>Welcome to the International Women's Day Carnival of Leadership!</h2>
-//                <p>Dear ${name},</p>
-//                <p>Thank you for your interest in our Paris 2026 event.</p>
-//                <p>Please find the event brochure attached as a PDF, which provides key information including program highlights, participation benefits, and other essential event details.</p>
-//                <p>If you have any questions or would like further clarification, our team would be happy to assist you. We look forward to the possibility of welcoming you to this impactful event.</p>
-//                <p>Thank you once again for your interest.</p>
-//                <p>Warm regards,<br>WYNx Team</p>`
-//       },
-//       "quantum": {
-//         filename: "WYNX New York Brochure.pdf",
-//         subject: "Welcome to WYNx Award-Winning Talks 2026",
-//         html: `<h2>Welcome to QUANTUM Next Gen Women Leadership & Mental Health Carnival!</h2>
-//                <p>Dear ${name},</p>
-//                <p>Thank you for your interest in our New York 2026 event.</p>
-//                <p>Please find the event brochure attached as a PDF, which provides key information including program highlights, participation benefits, and other essential event details.</p>
-//                <p>If you have any questions or would like further clarification, our team would be happy to assist you. We look forward to the possibility of welcoming you to this impactful event.</p>
-//                <p>Thank you once again for your interest.</p>
-//                <p>Warm regards,<br>WYNx Team</p>`
-//       }
-//     };
-
-//     const brochure = brochureDetails[pdfId];
-
-//     if (!brochure) {
-//       return res.status(400).json({ error: "Invalid PDF identifier" });
-//     }
-
-//     const pdfPath = path.resolve(__dirname, 'public', brochure.filename);
-
-//     if (!fs.existsSync(pdfPath)) {
-//       console.error(`❌ PDF not found at: ${pdfPath}`);
-//       return res.status(500).json({ error: "PDF file not found on server" });
-//     }
-
-//     await transporter.sendMail({
-//       from: '"Wynx Team" <wynxtalks@gmail.com>',
-//       to: email,
-//       subject: brochure.subject,
-//       html: brochure.html,
-//       attachments: [{ filename: brochure.filename, path: pdfPath }]
-//     });
-
-//     res.status(200).json({ message: "✅ PDF sent successfully" });
-//   } catch (error) {
-//     console.error("❌ Error sending PDF:", error);
-//     res.status(500).json({ error: error.message });
-//   }
-// });
-
-app.get("/carnival-week", async (req, res) => {
-  try {
-    const entries = await Carnivalevent.find();
-    res.status(200).json(entries);
-  } catch (error) {
-    console.error("❌ Error in /carnival-week:", error);
-    res.status(500).json({ error: error.message });
-  }
+/* ─── Contact schema ────────────────────────────────────────── */
+const contactSchema = new mongoose.Schema({
+  name:    { type: String, required: true, trim: true },
+  email:   { type: String, required: true, trim: true, lowercase: true },
+  subject: { type: String, required: true, trim: true },
+  message: { type: String, required: true, trim: true },
+  status:  { type: String, default: "new" }, // new | read | replied
+  date:    { type: Date, default: Date.now },
 });
 
-// Payment and other endpoints
-app.post("/create-payment-intent", async (req, res) => {
+const Contact = mongoose.model("Contact", contactSchema);
+
+
+app.post("/api/create-payment-intent", async (req, res) => {
+  console.log("[create-payment-intent] request received:", JSON.stringify(req.body));
+
   const { amount, billingDetails } = req.body;
 
   if (!amount || !billingDetails || !billingDetails.email) {
-    return res.status(400).json({ error: "Missing required payment details" });
+    console.warn("[create-payment-intent] rejected: missing amount or billingDetails.email");
+    return res.status(400).json({ error: "Missing required payment details (amount, billingDetails.email)." });
   }
 
+  const startedAt = Date.now();
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 100, // Convert to cents (USD)
-      currency: "usd",
-      description: "Payment for Service/Item",
+      amount:        Math.round(amount * 100),
+      currency:      "usd",
+      description:   "WYNx Conference Registration",
       receipt_email: billingDetails.email,
-      shipping: {
-        name: billingDetails.name || "No Name",
-        address: billingDetails.address || {},
-      },
+      ...(billingDetails.name && {
+        shipping: {
+          name:    billingDetails.name,
+          address: billingDetails.address || {},
+        },
+      }),
     });
 
+    console.log(`[create-payment-intent] succeeded in ${Date.now() - startedAt}ms, intent: ${paymentIntent.id}`);
     res.json({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
-    console.error("Error creating payment intent:", error);
-    res.status(500).json({ error: "Payment intent creation failed" });
+    console.error(`[create-payment-intent] FAILED after ${Date.now() - startedAt}ms`);
+    console.error("[create-payment-intent] Stripe error type:", error.type);
+    console.error("[create-payment-intent] Stripe error message:", error.message);
+    res.status(500).json({ error: error.message || "Payment intent creation failed." });
   }
 });
 
-app.post("/save-transaction", async (req, res) => {
+
+app.post("/api/save-transaction", async (req, res) => {
   const { amount, paymentStatus, transactionId, billingDetails } = req.body;
 
-  const transaction = new Transaction({
-    amount,
-    paymentStatus,
-    transactionId,
-    billingDetails,
-  });
+  if (!transactionId || !paymentStatus) {
+    return res.status(400).json({ error: "Missing transactionId or paymentStatus." });
+  }
 
   try {
+    const transaction = new Transaction({ amount, paymentStatus, transactionId, billingDetails });
     await transaction.save();
-    res.status(200).json({ message: "Transaction saved successfully" });
+    res.status(200).json({ message: "Transaction saved successfully." });
   } catch (error) {
     console.error("Error saving transaction:", error);
     res.status(500).json({ error: error.message });
   }
 });
 
-app.post("/send-email", async (req, res) => {
-  const { name, email, mobile, company, designation, state, city } = req.body;
 
-  const mailOptions = {
-    from: email,
-    to: "praveenkumarkanakala123@gmail.com",
-    subject: "New Sponsorship Registration",
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Mobile: ${mobile}
-      Company: ${company}
-      Designation: ${designation}
-      State: ${state}
-      City: ${city}
-    `,
-  };
+
+/* ─── POST /api/contact ─────────────────────────────────────── */
+app.post("/api/contact", async (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ error: "All fields (name, email, subject, message) are required." });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: "Please provide a valid email address." });
+  }
 
   try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Email sent successfully!" });
+    const contact = new Contact({ name, email, subject, message });
+    await contact.save();
+    console.log(`[contact] new message saved from ${email} (id: ${contact._id})`);
+    res.status(201).json({ message: "Message received successfully.", id: contact._id });
   } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ error: "Failed to send email." });
+    console.error("Error saving contact message:", error);
+    res.status(500).json({ error: "Something went wrong. Please try again later." });
   }
 });
 
 
-const PORT = 5001;
+app.get("/api/contact", async (req, res) => {
+  try {
+    const page  = parseInt(req.query.page)  || 1;
+    const limit = parseInt(req.query.limit) || 20;
+
+    const contacts = await Contact.find()
+      .sort({ date: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    const total = await Contact.countDocuments();
+
+    res.json({ contacts, total, page, pages: Math.ceil(total / limit) });
+  } catch (error) {
+    console.error("Error fetching contacts:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+/* ─── GET /api/contact/:id ──────────────────────────────────── */
+app.get("/api/contact/:id", async (req, res) => {
+  try {
+    const contact = await Contact.findById(req.params.id);
+    if (!contact) return res.status(404).json({ error: "Message not found." });
+    res.json(contact);
+  } catch (error) {
+    console.error("Error fetching contact:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

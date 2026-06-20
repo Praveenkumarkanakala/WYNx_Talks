@@ -1,41 +1,111 @@
 import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../../Pages/NewNavbar/Navbar';
 import NewFooter from '../../Pages/Footer/footer';
 
-import day1 from './agenda-day1.jpg';
-import day2 from './agenda-day2.jpg';
-import day3 from './agenda-day3.jpg';
-import day4 from './agenda-day4.jpg';
-import day5 from './agenda-day5.jpg';
-import day6 from './agenda-day6.jpg';
-import day7 from './agenda-day7.jpg';
+// ── New York agenda images ──
+import nyDay1 from './agenda-day1.jpeg';
+import nyDay2 from './agenda-day2.jpeg';
+import nyDay3 from './agenda-day3.jpeg';
+
+// ── Toronto agenda images ──
+import torontoDay1 from './canadaagenda.jpeg';
+
+const AGENDA_DATA = {
+  'wynx-01': {
+    name: 'New York Conclave',
+    location: 'New York, USA',
+    dates: [
+      'July 20, 2026',
+      'July 21, 2026',
+      'July 22, 2026',
+    ],
+    images: {
+      'July 20, 2026': nyDay1,
+      'July 21, 2026': nyDay2,
+      'July 22, 2026': nyDay3,
+    },
+  },
+
+  'wynx-02': {
+    name: 'Toronto Conclave',
+    location: 'Toronto, Canada',
+    dates: [
+      'November 09, 2026',
+    ],
+    images: {
+      'November 09, 2026': torontoDay1,
+    },
+  },
+
+  // ── Add the next conference here when ready ──
+  // 'wynx-03': {
+  //   name: 'Arab Women Hi-Rise Conclave',
+  //   location: 'Dubai, UAE',
+  //   dates: [...],
+  //   images: {...},
+  // },
+};
 
 const Agenda = () => {
-  const dates = [
-    'July 20, 2026',
-    'July 21, 2026',
-    'July 22, 2026',
-    'July 23, 2026',
-    'July 24, 2026',
-    'July 25, 2026',
-    'July 26, 2026',
-  ];
+  const { eventId } = useParams();
+  const navigate = useNavigate();
+  const event = AGENDA_DATA[eventId];
 
-  const agendaImages = {
-    'July 20, 2026': day1,
-    'July 21, 2026': day2,
-    'July 22, 2026': day3,
-    'July 23, 2026': day4,
-    'July 24, 2026': day5,
-    'July 25, 2026': day6,
-    'July 26, 2026': day7,
-  };
+  // Hooks must run unconditionally, in the same order, on every render —
+  // so this is declared before the early-return below (not after it).
+  // Falls back to null when the event isn't found, since event.dates[0]
+  // would otherwise throw.
+  const [selectedDate, setSelectedDate] = useState(event ? event.dates[0] : null);
 
-  const [selectedDate, setSelectedDate] = useState(dates[0]);
+  if (!event) {
+    return (
+      <>
+        <Navbar />
+        <div style={{ height: 68 }} />
+        <div
+          style={{
+            minHeight: '60vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            background: '#0a1a14',
+            padding: '60px 24px',
+            textAlign: 'center',
+            fontFamily: 'Inter, sans-serif',
+          }}
+        >
+          <h2 style={{ fontFamily: 'Playfair Display, serif' }}>Agenda Not Found</h2>
+          <p style={{ opacity: 0.7, marginTop: 8 }}>
+            This conference's agenda isn't available yet. Please check back soon.
+          </p>
+          <button
+            onClick={() => navigate(-1)}
+            style={{
+              marginTop: 24,
+              padding: '10px 24px',
+              background: '#c8922a',
+              border: 'none',
+              borderRadius: 8,
+              fontWeight: 700,
+              cursor: 'pointer',
+            }}
+          >
+            Go Back
+          </button>
+        </div>
+        <NewFooter />
+      </>
+    );
+  }
+
+  const { name, location, dates, images } = event;
+  const selectedImage = images[selectedDate];
 
   return (
     <>
-      {/* Inject Google Fonts + keyframes via a style tag */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -212,6 +282,22 @@ const Agenda = () => {
           border-radius: 12px;
           animation: agendaImageFade 0.45s cubic-bezier(.22,1,.36,1) both;
         }
+        .agenda-image-placeholder {
+          width: 100%;
+          min-height: 320px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: rgba(255,255,255,0.5);
+          gap: 10px;
+          text-align: center;
+          padding: 40px 20px;
+        }
+        .agenda-image-placeholder strong {
+          color: #c8922a;
+          font-size: 15px;
+        }
 
         /* ── Footer row ── */
         .agenda-footer-row {
@@ -270,10 +356,10 @@ const Agenda = () => {
           {/* Header */}
           <div className="agenda-eyebrow">
             <span className="agenda-eyebrow-dot" />
-            NEW YORK, USA — JULY 20–26, 2026
+            {location.toUpperCase()} — {dates[0]} TO {dates[dates.length - 1]}
           </div>
           <h1 className="agenda-heading">
-            New York Conclave <span>Agenda</span> 2026
+            {name} <span>Agenda</span>
           </h1>
           <div className="agenda-divider" />
 
@@ -293,12 +379,19 @@ const Agenda = () => {
           {/* Agenda image card */}
           <div className="agenda-image-card">
             <div className="agenda-image-wrap">
-              <img
-                key={selectedDate}
-                src={agendaImages[selectedDate]}
-                alt={`${selectedDate} Agenda`}
-                className="agenda-image"
-              />
+              {selectedImage ? (
+                <img
+                  key={selectedDate}
+                  src={selectedImage}
+                  alt={`${selectedDate} Agenda`}
+                  className="agenda-image"
+                />
+              ) : (
+                <div className="agenda-image-placeholder">
+                  <strong>Agenda coming soon</strong>
+                  <span>The schedule for {selectedDate} hasn't been published yet.</span>
+                </div>
+              )}
             </div>
             <div className="agenda-footer-row">
               <div className="agenda-footer-label">

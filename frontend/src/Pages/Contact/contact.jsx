@@ -3,6 +3,11 @@ import "./contact.css";
 import Navbar from "../NewNavbar/Navbar";
 import NewFooter from "../Footer/footer";
 
+const API_BASE =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wynxtalks.com"
+    : "http://localhost:5001";
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,15 +17,38 @@ const ContactPage = () => {
   });
   const [focused, setFocused] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3500);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setError("");
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${API_BASE}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setSubmitted(false), 3500);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const cards = [
@@ -138,6 +166,8 @@ const ContactPage = () => {
             </div>
           ) : (
             <form className="cp-form" onSubmit={handleSubmit}>
+              {error && <p className="cp-form-error">{error}</p>}
+
               <div className="cp-form-row">
                 <div className={`cp-field ${focused === "name" || formData.name ? "cp-active" : ""}`}>
                   <label>Name :</label>
@@ -193,7 +223,9 @@ const ContactPage = () => {
                 />
               </div>
 
-              <button type="submit" className="cp-submit">Subscribe Now</button>
+              <button type="submit" className="cp-submit" disabled={loading}>
+                {loading ? "Sending..." : "Subscribe Now"}
+              </button>
             </form>
           )}
         </div>

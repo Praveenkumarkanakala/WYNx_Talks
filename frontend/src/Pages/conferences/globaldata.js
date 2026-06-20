@@ -14,7 +14,7 @@ const wynxConferences = [
   "Psychological Assessment","Child Psychology","Adolescent Psychology","Adult Mental Health","Geriatric Psychology","Cross-Cultural Psychology","Community Psychology","Holistic Psychology","Cognitive Behavioral Therapy","Emotional Intelligence",
   "Stress Management","Addiction Psychology","Positive Psychology","Psychopharmacology","Neuroplasticity","Psychological Resilience","Psychology of Aging","Forensic Psychology","Educational Psychology","Workplace Mental Health"
 ],
-    fullDescription: "Theme: Power Reimagined: The Science of Influence, Intelligence, and Impact",
+    fullDescription: "Theme: Innovate, Inspire, Impact: Advancing Women's Leadership and Mental Wellbeing",
   },
   {
     id: "wynx-02",

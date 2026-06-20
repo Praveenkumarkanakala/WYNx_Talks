@@ -200,9 +200,7 @@ function TalkCard({ talk, index }) {
               link.click();
             }}
           >   Brochure  </button>
-          <button className="wy-action-btn wy-action-btn--outline"
-            onClick={index === 0 ? () => navigate("/newyorkagenda2026") : undefined}
-          > Agenda   </button>
+          <button  className="wy-action-btn wy-action-btn--outline"  onClick={() => navigate(`/agenda/${talk.id}`)}   >  Agenda </button>
           <button
             className="wy-action-btn wy-action-btn--filled"
             onClick={() => navigate("/awardsnomination")}

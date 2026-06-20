@@ -50,8 +50,9 @@ function App() {
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/success" element={<h2>Payment Successful!</h2>} />
           <Route path="/awardsnomination" element={<Newreg/>} />
+
           <Route path="/preview" element={<PreviewPage />} />
-          <Route path="/newyorkagenda2026" element={<Agendapage />} />
+          <Route path="/agenda/:eventId" element={<Agendapage />} />
           <Route path="/newnavbar" element={<NewNav />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/newfooter" element={<NewFooter />} />
