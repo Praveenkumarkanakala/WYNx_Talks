@@ -19,8 +19,7 @@ const stripePromise = loadStripe("pk_live_51Suo3iQUfazZeuEKJLd1doK0cYsB7ZWYfCWCJ
 // During local dev
 // const API_BASE = "http://localhost:5001";
 
-// For production — comment out the line above and uncomment this:
-const API_BASE = "https://wynxtalks.com";
+const API_BASE = "https://www.wynxtalks.com";
 
 /* ─── Theme ─────────────────────────────────────────────────── */
 const GOLD       = '#c8922a';
@@ -32,10 +31,7 @@ const PANEL      = '#0f2019';
 const TEXT_DIM   = 'rgba(255,255,255,0.6)';
 const TEXT_FAINT = 'rgba(255,255,255,0.4)';
 
-/* ─── Conference label ─────────────────────────────────────── */
-/* submissionData.conference is already the full display string
-   (set directly from CONFERENCES in RegisterPage.jsx), so no lookup
-   table is needed — just fall back to a placeholder if it's empty. */
+
 const formatConference = (v) => v || '—';
 const formatMode       = (mode) =>
   mode === 'physical' ? 'Physical Speaker (In-person)'

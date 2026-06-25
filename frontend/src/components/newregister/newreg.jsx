@@ -210,7 +210,7 @@ const EXTRA_NIGHT_PRICE = 199;
 const COUPON_CODES = {
   WYNXSAVE100: 100,
   WYNXSAVE200: 200,
-  WYNXSAVE300: 300,
+  WYNXSAVE898: 898,
 };
 
 /* ═════════════════   THEME — matches the WYNx landing page   ═══════════════════════════ */

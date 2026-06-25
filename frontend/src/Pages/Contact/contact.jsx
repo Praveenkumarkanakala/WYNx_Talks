@@ -5,7 +5,7 @@ import NewFooter from "../Footer/footer";
 
 const API_BASE =
   process.env.NODE_ENV === "production"
-    ? "https://api.wynxtalks.com"
+    ? "https://www.wynxtalks.com"
     : "http://localhost:5001";
 
 const ContactPage = () => {

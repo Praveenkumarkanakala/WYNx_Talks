@@ -18,7 +18,7 @@ const app = express();
 
 // For production
 app.use(cors({
-  origin: "https://wynxtalks.com",
+  origin: ["https://wynxtalks.com", "https://www.wynxtalks.com"],
 }));
 
 app.use(bodyParser.json());
