@@ -7,6 +7,7 @@ import NewFooter from '../../Pages/Footer/footer';
 import nyDay1 from './agenda-day1.jpeg';
 import nyDay2 from './agenda-day2.jpeg';
 import nyDay3 from './agenda-day3.jpeg';
+import nyDay4 from './agenda-day4.jpeg';
 
 // ── Toronto agenda images ──
 import torontoDay1 from './canadaagenda.jpeg';
@@ -19,11 +20,13 @@ const AGENDA_DATA = {
       'July 20, 2026',
       'July 21, 2026',
       'July 22, 2026',
+      'July 23, 2026',
     ],
     images: {
       'July 20, 2026': nyDay1,
       'July 21, 2026': nyDay2,
       'July 22, 2026': nyDay3,
+      'July 23, 2026': nyDay4,  
     },
   },
 

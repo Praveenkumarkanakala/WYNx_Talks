@@ -36,7 +36,7 @@ const TALKS = [
     id: "wynx-01",
     image: eventimg1,
     title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026",
-    date: "July 20–26, 2026",
+    date: "July 20–23, 2026",
     location: "New York, USA",
     brochure: brochure1,
     rating: "4.9",
@@ -247,8 +247,8 @@ function TalkCard({ talk, index }) {
             }}
           >   Brochure  </button>
           <button
-            className="wy-action-btn wy-action-btn--outline"
-            onClick={index === 0 ? () => navigate("/newyorkagenda2026") : undefined}
+            className="wy-action-btn wy-action-btn--outline" onClick={() => navigate(`/agenda/${talk.id}`)}
+            // onClick={index === 0 ? () => navigate("/newyorkagenda2026") : undefined}
           >
             Agenda
           </button>

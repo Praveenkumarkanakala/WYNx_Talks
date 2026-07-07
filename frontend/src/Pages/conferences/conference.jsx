@@ -14,7 +14,6 @@ import eventimg6 from "../conferences/conclaveimg2.png";
 import eventimg7 from "../conferences/conclaveimg3.png";
 
 
-
 import brochure1 from "../../components/Events/WYNX New York Brochure.pdf";
 import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
 import brochure3 from "../../components/Events/WYNx Dubai Brochure.pdf";
@@ -27,7 +26,7 @@ const ALL_EVENTS = [
     id: "wynx-01",
     image: eventimg1,
     title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026",
-    date: "July 20–26, 2026",
+    date: "July 20–23, 2026",
     location: "New York, USA",
     brochure: brochure1,
     rating: "4.9",
