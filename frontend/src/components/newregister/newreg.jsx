@@ -99,7 +99,6 @@ const DIAL_CODES = [
 ];
 
 const CONFERENCES = [
-  'QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026 - July 20-26, 2026 | New York, USA',
   'ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing - November 09-15, 2026 | Toronto, Canada',
   'ARAB WOMEN Hi-RISE CONCLAVE - November 23-29, 2026 | Dubai, UAE',
   "International Women's Day Conclave: A Global Movement for Women's Empowerment & Mental Wellbeing - March 08–14, 2027 | Paris, France",
@@ -142,7 +141,7 @@ const PHYSICAL_PACKAGES = [
   {
     id: 'deal-b-3nights',
     badge: 'BEST VALUE',
-    name: 'Physical Keynote Speaker Registration + 3 Nights accommodation',
+    name: 'Physical Keynote Speaker Registration + 2 Nights accommodation',
     price: 1099,
     features: [
       'Physical Keynote Speaker Registration',

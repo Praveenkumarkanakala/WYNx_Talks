@@ -25,23 +25,14 @@ import Galleryhome5 from "../../components/Gallary/Conferencegallery1.jpeg";
 import Galleryhome6 from "../../components/Gallary/Conferencegallery2.jpeg";
 
 
-import brochure1 from "../../components/Events/WYNX New York Brochure.pdf";
 import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
 import brochure3 from "../../components/Events/WYNx Dubai Brochure.pdf";
+import brochure4 from "../../components/Events/WYNx Paris Brocher.pdf";
 
 /* ─── Data ──────────────────────────────────────────────────────── */
 
 const TALKS = [
-  {
-    id: "wynx-01",
-    image: eventimg1,
-    title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026",
-    date: "July 20–23, 2026",
-    location: "New York, USA",
-    brochure: brochure1,
-    rating: "4.9",
-    tags: ["Leadership", "Global", "Award Winning"],
-  },
+  
   {
     id: "wynx-02",
     image: eventimg,
@@ -61,6 +52,16 @@ const TALKS = [
     brochure: brochure3,
     rating: "4.9",
     tags: ["Leadership", "Global Networking", "Award Winning"],
+  },
+  {
+    id: "wynx-04",
+    image: eventimg1,
+    title: "International Women's Day Conclave: A Global Movement for Women's Empowerment & Mental Wellbeing",
+    date: "March 08–14, 2027",
+    location: "Paris, France",
+    brochure: brochure4,
+    rating: "4.9",
+    tags: ["Leadership", "Global", "Award Winning"],
   },
   
 ];

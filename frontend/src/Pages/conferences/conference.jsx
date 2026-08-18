@@ -22,17 +22,17 @@ import brochure4 from "../../components/Events/WYNx Paris Brocher.pdf";
 /* ─── Data ──────────────────────────────────────────────────────── */
 
 const ALL_EVENTS = [
-  {
-    id: "wynx-01",
-    image: eventimg1,
-    title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026",
-    date: "July 20–23, 2026",
-    location: "New York, USA",
-    brochure: brochure1,
-    rating: "4.9",
-    tags: ["Leadership", "Global", "Award Winning"],
-    category: "Leadership",
-  },
+  // {
+  //   id: "wynx-01",
+  //   image: eventimg1,
+  //   title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026",
+  //   date: "July 20–23, 2026",
+  //   location: "New York, USA",
+  //   brochure: brochure1,
+  //   rating: "4.9",
+  //   tags: ["Leadership", "Global", "Award Winning"],
+  //   category: "Leadership",
+  // },
   {
     id: "wynx-02",
     image: eventimg2,
