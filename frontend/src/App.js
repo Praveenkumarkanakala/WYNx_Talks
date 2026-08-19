@@ -10,6 +10,7 @@ import ScrollToTop from './ScrollToTop';
 import Gallery from './components/Gallary/gallary';
 import Awardcategory from './components/Awardctg/awardctg';
 import Awardwinners from './components/Awardwinner/winner';
+import Arabimage from './Pages/Arab/Arab';
 // import NewHome from "./components/NewHome/home";
 import Checkout from './components/Awardregister/checkout';
 import Newreg from './components/newregister/newreg';
@@ -46,6 +47,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/awardcategories" element={<Awardcategory />} />
           <Route path="/awardwinners" element={<Awardwinners />} />
+          <Route path="/arabwomen" element={<Arabimage />} />
           {/* <Route path='/landing' element={<NewHome />} /> */}
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/success" element={<h2>Payment Successful!</h2>} />
