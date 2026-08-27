@@ -5,7 +5,7 @@ import Navbar from "../NewNavbar/Navbar";
 import NewFooter from "../Footer/footer";
 
 import eventimg from "../conferences/conclaveimage4.jpeg";
-import eventimg1 from "../conferences/conclaveimage1.jpg";
+// import eventimg1 from "../conferences/conclaveimage1.jpg";
 import eventimg2 from "../conferences/conclaveimage4.jpg";
 import eventimg3 from "../conferences/conclaveimage.jpg";
 import eventimg4 from "../conferences/conclaveimg.png";
@@ -14,7 +14,7 @@ import eventimg6 from "../conferences/conclaveimg2.png";
 import eventimg7 from "../conferences/conclaveimg3.png";
 
 
-import brochure1 from "../../components/Events/WYNX New York Brochure.pdf";
+// import brochure1 from "../../components/Events/WYNX New York Brochure.pdf";
 import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
 import brochure3 from "../../components/Events/WYNx Dubai Brochure.pdf";
 import brochure4 from "../../components/Events/WYNx Paris Brocher.pdf";
