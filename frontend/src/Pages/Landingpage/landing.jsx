@@ -3,6 +3,7 @@ import "./landing.css";
 import Navbar from "../NewNavbar/Navbar";      
 import NewFooter from "../Footer/footer";
 import heroimg from "./Heroimage.png";
+import midLogo from "./excellencelogo.png";   
 import { useNavigate } from "react-router-dom";
 
 import eventimg from "../conferences/conclaveimage4.jpg";
@@ -151,7 +152,7 @@ const GALLERY_IMAGES = [ Galleryhome, Galleryhome6, Galleryhome5, Galleryhome4, 
 
 const SPEAKER_IMAGES = [   "regspeaker.jpg",  "regspeaker1.jpg",  "regspeaker2.jpg",  "regspeaker3.jpg",  "regspeaker4.jpg",  "regspeaker5.jpg",  "regspeaker6.jpg",
   "Allison C. Williams.jpg",  "Anne Deatly Phd.jpg",  "Arsella Burton.jpg",  "Bruce Wren.jpg",  "Carlota De Gula Iremedio.jpg",  "Yelena Kalendareva.jpg",
-  "Wanna Williamson-Jackson.jpg",  "Thiru Damodharan.jpg",  "Stephani Forbes.jpg",  "Sam Sammane.jpg",  "Rudy Merouchi.jpg",  "Rasimah Jar.jpg",
+  "Wanna Williamson-Jackson.jpg",  "Thiru Damodharan.jpg",  "Stephani Forbes.jpg",  "Sam Sammane.jpg",  "Rudy Merouchi.jpg",  "Rasimah Jar.jpg", "FeliciaAGokool.jpeg",
   "Nio Queiro.jpg",  "Christine Forment.jpg",  "Deborah S. Greenhut.jpg",  "Dr. Denise Y Wynn.jpg",  "Dr. Dimple Patel.jpg",  "Dr. Ignacio Bonasa.jpg",
   "Dr. Laura Kristan Wilhelm.jpg",  "Dr. Sharon Shappley.jpg",  "Eniko Frenyo Simoes.jpg",  "Huma Nosheen Mirza.jpg",  "Jean Pael.jpg",  "Jeffrey Herbert Williams.jpg",
   "Karima GUERFALI LAZZEM.jpg",  "Limor Jasinski.jpg",  "Lissette Valle.jpg",  "Nikki Langman.jpg",  "Tristina Anderson.jpg",  "Margaret Vuijk-Cieslak.jpg",  "Bente Vosteen.jpg",
@@ -498,6 +499,15 @@ export default function WYNxLanding() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* middle logo (between hero text and trophy) */}
+        <div className="wy-hero-logo-mid">
+          <img
+            src={midLogo}
+            alt="Partner Logo"
+            className="wy-hero-logo-img wy-anim wy-anim-2"
+          />
         </div>
 
         <div className="wy-hero-right wy-anim wy-anim-2">
