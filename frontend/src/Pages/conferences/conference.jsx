@@ -6,7 +6,7 @@ import NewFooter from "../Footer/footer";
 
 import eventimg from "../conferences/conclaveimage4.jpeg";
 // import eventimg1 from "../conferences/conclaveimage1.jpg";
-import eventimg2 from "../conferences/conclaveimage4.jpg";
+// import eventimg2 from "../conferences/conclaveimage4.jpg";
 import eventimg3 from "../conferences/conclaveimage.jpg";
 import eventimg4 from "../conferences/conclaveimg.png";
 import eventimg5 from "../conferences/conclaveimg1.png";
@@ -33,19 +33,19 @@ const ALL_EVENTS = [
   //   tags: ["Leadership", "Global", "Award Winning"],
   //   category: "Leadership",
   // },
+  // {
+  //   id: "wynx-02",
+  //   image: eventimg2,
+  //   title: "ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
+  //   date: "November 09-13, 2026",
+  //   location: "Toronto, Canada",
+  //   brochure: brochure2,
+  //   rating: "4.7",
+  //   tags: ["Leadership", "Global", "Award Winning"],
+  //   category: "Leadership",
+  // },
   {
-    id: "wynx-02",
-    image: eventimg2,
-    title: "ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
-    date: "November 09-13, 2026",
-    location: "Toronto, Canada",
-    brochure: brochure2,
-    rating: "4.7",
-    tags: ["Leadership", "Global", "Award Winning"],
-    category: "Leadership",
-  },
-  {
-    id: "wynx-03",
+    id: "wynx-01",
     image: eventimg3,
     title: "ARAB WOMEN Hi-RISE CONCLAVE",
     date: "November 23-27, 2026",
@@ -56,7 +56,7 @@ const ALL_EVENTS = [
     category: "Leadership",
   },
   {
-    id: "wynx-04",
+    id: "wynx-02",
     image: eventimg,
     title: "International Women's Day Conclave: A Global Movement for Women's Empowerment & Mental Wellbeing",
     date: "March 08–12, 2027",
@@ -67,7 +67,7 @@ const ALL_EVENTS = [
     category: "Leadership",
   },
   {
-    id: "wynx-08",
+    id: "wynx-03",
     image: eventimg7,
     title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2027",
     date: "March 08–12, 2027",
@@ -78,7 +78,7 @@ const ALL_EVENTS = [
     category: "Leadership",
   },
   {
-    id: "wynx-05",
+    id: "wynx-04",
     image: eventimg4,
     title: "Quantum Tech Women Leadership, AI Health Conclave",
     date: "May 09-13, 2027",
@@ -88,7 +88,7 @@ const ALL_EVENTS = [
     category: "Innovation",
   },
   {
-    id: "wynx-06",
+    id: "wynx-05",
     image: eventimg5,
     title: "Gen-Xer Women Empowerment & Mental Health Conclave",
     date: "September 05-09, 2027",
@@ -98,7 +98,7 @@ const ALL_EVENTS = [
     category: "Empowerment",
   },
   {
-    id: "wynx-07",
+    id: "wynx-06",
     image: eventimg6,
     title: "ARAB WOMEN Hi-RISE CONCLAVE",
     date: "November 07-11, 2027",

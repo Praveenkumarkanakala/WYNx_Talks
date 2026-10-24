@@ -436,7 +436,7 @@
 /* ── Middle logo between hero text and trophy ── */
 .wy-hero-logo-mid {
   position: absolute;
-  top: 30%;            /* 👈 vertical position: smaller = higher, larger = lower */
+  top: 30%;            
   left: 49%;           /* 👈 horizontal position: smaller = toward text, larger = toward trophy */
   transform: translate(-50%, -50%);
   z-index: 3;

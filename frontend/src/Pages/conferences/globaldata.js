@@ -1,6 +1,6 @@
 const wynxConferences = [
   {
-    id: "wynx-01",
+    id: "wynx-001",
     title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026",
     date: "July 20–26, 2026",
     location: "New York, USA",
@@ -17,7 +17,7 @@ const wynxConferences = [
     fullDescription: "Theme: Innovate, Inspire, Impact: Advancing Women's Leadership and Mental Wellbeing",
   },
   {
-    id: "wynx-02",
+    id: "wynx-002",
     title: "ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
     date: "November 09-13, 2026",
     location: "Toronto, Canada",
@@ -34,7 +34,7 @@ const wynxConferences = [
     fullDescription: "Theme: Beyond Burnout: The Science of Recovery, Resilience, and Leadership",
   },
   {
-    id: "wynx-03",
+    id: "wynx-01",
     title: "ARAB WOMEN Hi-RISE CONCLAVE",
     date: "November 23-27, 2026",
     location: "Dubai, UAE",
@@ -52,7 +52,7 @@ const wynxConferences = [
     fullDescription: "Theme: Shaping the Future of Business Through AI and Visionary Leadership",
   },
   {
-    id: "wynx-04",
+    id: "wynx-02",  
     title: "International Women's Day Conclave: A Global Movement for Women's Empowerment & Mental Wellbeing",
     date: "March 08–12, 2027",
     location: "Paris, France",
@@ -69,7 +69,7 @@ const wynxConferences = [
     fullDescription: "Theme: Empowering Voices, Breaking Barriers, Shaping the Future",
   },
   {
-    id: "wynx-05",
+    id: "wynx-04",
     title: "Quantum Tech Women Leadership, AI Health Conclave",
     date: "May 09-13, 2027",
     location: "Tokyo, Japan",
@@ -87,7 +87,7 @@ const wynxConferences = [
     fullDescription: "Theme:  Innovating Healthcare, Empowering Leadership, Transforming Lives",
   },
   {
-    id: "wynx-06",
+    id: "wynx-05",
     title: "Gen-Xer Women Empowerment & Mental Health Conclave",
     date: "September 05-09, 2027",
     location: "Miami, Florida, USA",
@@ -104,7 +104,7 @@ const wynxConferences = [
     fullDescription: "Theme: Empowering Lives Through Innovation, Wellness, and Intelligent Technology",
   },
   {
-    id: "wynx-07",
+    id: "wynx-06",
     title: "ARAB WOMEN Hi-RISE CONCLAVE",
     date: "November 07-11, 2027",
     location: "Dubai, UAE",
@@ -122,7 +122,7 @@ const wynxConferences = [
   },
 
   {
-    id: "wynx-08",
+    id: "wynx-03",
     title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2027",
     date: "March 08–12, 2027",
     location: "New York, USA",

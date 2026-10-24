@@ -26,7 +26,7 @@ import Galleryhome5 from "../../components/Gallary/Conferencegallery1.jpeg";
 import Galleryhome6 from "../../components/Gallary/Conferencegallery2.jpeg";
 
 
-import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
+// import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
 import brochure3 from "../../components/Events/WYNx Dubai Brochure.pdf";
 import brochure4 from "../../components/Events/WYNx Paris Brocher.pdf";
 
@@ -34,18 +34,9 @@ import brochure4 from "../../components/Events/WYNx Paris Brocher.pdf";
 
 const TALKS = [
   
+  
   {
-    id: "wynx-02",
-    image: eventimg,
-    title: "ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
-    date: "November 09-13, 2026",
-    location: "Toronto, Canada",
-    brochure: brochure2,
-    rating: "4.9",
-    tags: ["Leadership", "Global", "Award Winning"],
-  },
-  {
-    id: "wynx-03",
+    id: "wynx-01",
     image: eventimg2,
     title: " ARAB WOMEN Hi-RISE CONCLAVE",
     date: "November 23-27, 2026",
@@ -55,12 +46,22 @@ const TALKS = [
     tags: ["Leadership", "Global Networking", "Award Winning"],
   },
   {
-    id: "wynx-04",
+    id: "wynx-02",
     image: eventimg1,
     title: "International Women's Day Conclave: A Global Movement for Women's Empowerment & Mental Wellbeing",
     date: "March 08–12, 2027",
     location: "Paris, France",
     brochure: brochure4,
+    rating: "4.9",
+    tags: ["Leadership", "Global", "Award Winning"],
+  },
+  {
+    id: "wynx-03",
+    image: eventimg,
+    title: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2027",
+    date: "March 08-12, 2027",
+    location: "New York, USA",
+    // brochure: brochure2,
     rating: "4.9",
     tags: ["Leadership", "Global", "Award Winning"],
   },

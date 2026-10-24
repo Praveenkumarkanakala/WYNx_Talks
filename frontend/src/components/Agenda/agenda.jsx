@@ -3,51 +3,66 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../../Pages/NewNavbar/Navbar';
 import NewFooter from '../../Pages/Footer/footer';
 
-// ── New York agenda images ──
-import nyDay1 from './agenda-day1.jpeg';
-import nyDay2 from './agenda-day2.jpeg';
-import nyDay3 from './agenda-day3.jpeg';
-import nyDay4 from './agenda-day4.jpeg';
+// ── Agenda images ──
+import nyDay1 from './room1agenda.jpeg';
+import nyDay2 from './room2agenda.jpeg';
+import nyDay3 from './cestagenda.jpeg';
+import nyDay4 from './estagenda.jpeg';
 
-// ── Toronto agenda images ──
-import torontoDay1 from './canadaagenda.jpeg';
 
 const AGENDA_DATA = {
   'wynx-01': {
-    name: 'New York Conclave',
-    location: 'New York, USA',
-    dates: [
-      'July 20, 2026',
-      'July 21, 2026',
-      'July 22, 2026',
-      'July 23, 2026',
+    name: 'Dubai Conclave',
+    location: 'Dubai, UAE',
+    headerDates: 'November 18 – 26, 2026',
+    tabs: [
+      {
+        id: 'room-1',
+        title: 'Room 1',
+        mode: 'In person',
+        dateText: 'November 25-26, 2026',
+        image: nyDay1,
+      },
+      {
+        id: 'room-2',
+        title: 'Room 2',
+        mode: 'In person',
+        dateText: 'November 25-26, 2026',
+        image: nyDay2,
+      },
+      {
+        id: 'cest',
+        title: 'CEST',
+        mode: 'Virtual',
+        dateText: 'November 18, 19 & 20, 2026',
+        image: nyDay3,
+      },
+      {
+        id: 'est',
+        title: 'EST',
+        mode: 'Virtual',
+        dateText: 'November 18, 19 & 20, 2026',
+        image: nyDay4,
+      },
     ],
-    images: {
-      'July 20, 2026': nyDay1,
-      'July 21, 2026': nyDay2,
-      'July 22, 2026': nyDay3,
-      'July 23, 2026': nyDay4,  
-    },
   },
 
-  'wynx-02': {
-    name: 'Toronto Conclave',
-    location: 'Toronto, Canada',
-    dates: [
-      'November 09, 2026',
-    ],
-    images: {
-      'November 09, 2026': torontoDay1,
-    },
-  },
+  // 'wynx-03': {
+  //   name: 'Toronto Conclave',
+  //   location: 'Toronto, Canada',
+  //   headerDates: 'November 09, 2026',
+  //   tabs: [
+  //     {
+  //       id: 'day-1',
+  //       title: 'Day 1',
+  //       mode: 'In person',
+  //       dateText: 'November 09, 2026',
+  //       image: torontoDay1,
+  //     },
+  //   ],
+  // },
 
   // ── Add the next conference here when ready ──
-  // 'wynx-03': {
-  //   name: 'Arab Women Hi-Rise Conclave',
-  //   location: 'Dubai, UAE',
-  //   dates: [...],
-  //   images: {...},
-  // },
 };
 
 const Agenda = () => {
@@ -55,11 +70,7 @@ const Agenda = () => {
   const navigate = useNavigate();
   const event = AGENDA_DATA[eventId];
 
-  // Hooks must run unconditionally, in the same order, on every render —
-  // so this is declared before the early-return below (not after it).
-  // Falls back to null when the event isn't found, since event.dates[0]
-  // would otherwise throw.
-  const [selectedDate, setSelectedDate] = useState(event ? event.dates[0] : null);
+  const [selectedId, setSelectedId] = useState(event ? event.tabs[0].id : null);
 
   if (!event) {
     return (
@@ -104,8 +115,9 @@ const Agenda = () => {
     );
   }
 
-  const { name, location, dates, images } = event;
-  const selectedImage = images[selectedDate];
+  const { name, location, headerDates, tabs } = event;
+  const selectedIndex = Math.max(0, tabs.findIndex((t) => t.id === selectedId));
+  const selectedTab = tabs[selectedIndex];
 
   return (
     <>
@@ -210,7 +222,7 @@ const Agenda = () => {
           margin: 16px auto 40px;
         }
 
-        /* ── Date buttons ── */
+        /* ── Tab buttons ── */
         .agenda-date-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -218,29 +230,39 @@ const Agenda = () => {
           margin-bottom: 40px;
         }
         .agenda-date-btn {
-          padding: 13px 10px;
+          padding: 14px 10px;
           border: 1.5px solid rgba(200,146,42,0.25);
           border-radius: 10px;
           font-family: 'Inter', sans-serif;
-          font-weight: 600;
-          font-size: 13px;
           cursor: pointer;
           background: rgba(200,146,42,0.06);
           color: rgba(255,255,255,0.65);
           transition: all 0.22s ease;
-          letter-spacing: 0.2px;
-          line-height: 1.4;
           text-align: center;
           position: relative;
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 3px;
         }
-        .agenda-date-btn::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: rgba(200,146,42,0.0);
-          transition: background 0.22s;
-          border-radius: inherit;
+        .agenda-tab-title {
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: 0.3px;
+        }
+        .agenda-tab-mode {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          opacity: 0.85;
+        }
+        .agenda-tab-date {
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 1.35;
+          opacity: 0.9;
         }
         .agenda-date-btn:hover {
           border-color: rgba(200,146,42,0.55);
@@ -252,7 +274,6 @@ const Agenda = () => {
           background: #c8922a;
           border-color: #c8922a;
           color: #0a1a14;
-          font-weight: 700;
           transform: translateY(-2px);
           box-shadow: 0 10px 32px rgba(200,146,42,0.30);
         }
@@ -342,39 +363,40 @@ const Agenda = () => {
         }
         @media (max-width: 480px) {
           .agenda-date-grid { grid-template-columns: 1fr 1fr; }
-          .agenda-date-btn { font-size: 12px; padding: 11px 8px; }
+          .agenda-date-btn { padding: 11px 8px; }
+          .agenda-tab-title { font-size: 14px; }
+          .agenda-tab-date { font-size: 11px; }
         }
       `}</style>
 
       <Navbar />
-      {/* Push content below fixed navbar (68px height) */}
       <div style={{ height: 68 }} />
 
       <div className="agenda-root">
-        {/* Ambient glows */}
         <div className="agenda-glow agenda-glow-1" />
         <div className="agenda-glow agenda-glow-2" />
 
         <div className="agenda-container">
-          {/* Header */}
           <div className="agenda-eyebrow">
             <span className="agenda-eyebrow-dot" />
-            {location.toUpperCase()} — {dates[0]} TO {dates[dates.length - 1]}
+            {location.toUpperCase()} — {headerDates}
           </div>
           <h1 className="agenda-heading">
             {name} <span>Agenda</span>
           </h1>
           <div className="agenda-divider" />
 
-          {/* Date selector */}
+          {/* Tab selector */}
           <div className="agenda-date-grid">
-            {dates.map((date, idx) => (
+            {tabs.map((tab) => (
               <button
-                key={date}
-                className={`agenda-date-btn${selectedDate === date ? ' active' : ''}`}
-                onClick={() => setSelectedDate(date)}
+                key={tab.id}
+                className={`agenda-date-btn${selectedTab.id === tab.id ? ' active' : ''}`}
+                onClick={() => setSelectedId(tab.id)}
               >
-                Day {idx + 1}<br />{date}
+                <span className="agenda-tab-title">{tab.title}</span>
+                <span className="agenda-tab-mode">{tab.mode}</span>
+                <span className="agenda-tab-date">{tab.dateText}</span>
               </button>
             ))}
           </div>
@@ -382,17 +404,19 @@ const Agenda = () => {
           {/* Agenda image card */}
           <div className="agenda-image-card">
             <div className="agenda-image-wrap">
-              {selectedImage ? (
+              {selectedTab.image ? (
                 <img
-                  key={selectedDate}
-                  src={selectedImage}
-                  alt={`${selectedDate} Agenda`}
+                  key={selectedTab.id}
+                  src={selectedTab.image}
+                  alt={`${selectedTab.title} ${selectedTab.mode} Agenda`}
                   className="agenda-image"
                 />
               ) : (
                 <div className="agenda-image-placeholder">
                   <strong>Agenda coming soon</strong>
-                  <span>The schedule for {selectedDate} hasn't been published yet.</span>
+                  <span>
+                    The schedule for {selectedTab.title} ({selectedTab.mode}) hasn't been published yet.
+                  </span>
                 </div>
               )}
             </div>
@@ -404,10 +428,10 @@ const Agenda = () => {
                   <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round"/>
                   <line x1="3" y1="10" x2="21" y2="10" strokeLinecap="round"/>
                 </svg>
-                {selectedDate}
+                {selectedTab.dateText}
               </div>
               <div className="agenda-day-badge">
-                Day {dates.indexOf(selectedDate) + 1} of {dates.length}
+                {selectedTab.title} · {selectedTab.mode}
               </div>
             </div>
           </div>
