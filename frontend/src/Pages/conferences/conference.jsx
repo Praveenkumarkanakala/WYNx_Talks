@@ -6,7 +6,7 @@ import NewFooter from "../Footer/footer";
 
 import eventimg from "../conferences/conclaveimage4.jpeg";
 // import eventimg1 from "../conferences/conclaveimage1.jpg";
-// import eventimg2 from "../conferences/conclaveimage4.jpg";
+import eventimg2 from "../conferences/conclaveimage5.jpeg";
 import eventimg3 from "../conferences/conclaveimage.jpg";
 import eventimg4 from "../conferences/conclaveimg.png";
 import eventimg5 from "../conferences/conclaveimg1.png";
@@ -15,7 +15,7 @@ import eventimg7 from "../conferences/conclaveimg3.png";
 
 
 // import brochure1 from "../../components/Events/WYNX New York Brochure.pdf";
-import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
+// import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
 import brochure3 from "../../components/Events/WYNx Dubai Brochure.pdf";
 import brochure4 from "../../components/Events/WYNx Paris Brocher.pdf";
 
@@ -106,6 +106,18 @@ const ALL_EVENTS = [
     rating: "4.9",
     tags: ["Women Empowerment", "Leadership", "Keynote Speaker"],
     category: "Innovation",
+  },
+
+ {
+    id: "wynx-07",
+    image: eventimg2,
+    title: "ASCEND 2027: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
+    date: "November 09-13, 2027",
+    location: "Toronto, Canada",
+    // brochure: brochure2,
+    rating: "4.7",
+    tags: ["Leadership", "Global", "Award Winning"],
+    category: "Leadership",
   },
 ];
 

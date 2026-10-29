@@ -6,8 +6,8 @@ import heroimg from "./Heroimage.png";
 import midLogo from "./excellencelogo.png";   
 import { useNavigate } from "react-router-dom";
 
-import eventimg from "../conferences/conclaveimage4.jpg";
-import eventimg1 from "../conferences/conclaveimage1.jpg";
+import eventimg from "../conferences/conclaveimage6.jpeg";
+import eventimg1 from "../conferences/conclaveimage4.jpeg";
 import eventimg2 from "../conferences/conclaveimage.jpg";
 
 /* ─── Speaker Spotlight Videos ─── */

@@ -8,6 +8,7 @@ import nyDay1 from './room1agenda.jpeg';
 import nyDay2 from './room2agenda.jpeg';
 import nyDay3 from './cestagenda.jpeg';
 import nyDay4 from './estagenda.jpeg';
+import parisDay1 from './Parisagenda2027.jpeg';
 
 
 const AGENDA_DATA = {
@@ -47,20 +48,20 @@ const AGENDA_DATA = {
     ],
   },
 
-  // 'wynx-03': {
-  //   name: 'Toronto Conclave',
-  //   location: 'Toronto, Canada',
-  //   headerDates: 'November 09, 2026',
-  //   tabs: [
-  //     {
-  //       id: 'day-1',
-  //       title: 'Day 1',
-  //       mode: 'In person',
-  //       dateText: 'November 09, 2026',
-  //       image: torontoDay1,
-  //     },
-  //   ],
-  // },
+  'wynx-02': {
+    name: 'Paris Conclave',
+    location: 'Paris, France',
+    headerDates: 'March 08-12, 2026',
+    tabs: [
+      {
+        id: 'day-1',
+        title: 'International Women’s Day 2027',
+        mode: 'IN-PERSON & VIRTUAL PARTICIPATION',
+        dateText: 'March 08-12, 2026',
+        image: parisDay1,
+      },
+    ],
+  },
 
   // ── Add the next conference here when ready ──
 };
@@ -118,6 +119,7 @@ const Agenda = () => {
   const { name, location, headerDates, tabs } = event;
   const selectedIndex = Math.max(0, tabs.findIndex((t) => t.id === selectedId));
   const selectedTab = tabs[selectedIndex];
+  const isSingle = tabs.length === 1;
 
   return (
     <>
@@ -278,6 +280,101 @@ const Agenda = () => {
           box-shadow: 0 10px 32px rgba(200,146,42,0.30);
         }
 
+        /* ── Single-event banner ── */
+        .agenda-single {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          padding: 24px 32px;
+          margin-bottom: 40px;
+          border-radius: 18px;
+          background:
+            linear-gradient(135deg, rgba(200,146,42,0.16) 0%, rgba(200,146,42,0.04) 60%),
+            #0f2019;
+          border: 1px solid rgba(200,146,42,0.35);
+          box-shadow: 0 18px 50px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
+          position: relative;
+          overflow: hidden;
+        }
+        .agenda-single::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 4px;
+          background: linear-gradient(180deg, #e0a93b, #c8922a, rgba(200,146,42,0.2));
+        }
+        .agenda-single-icon {
+          width: 60px; height: 60px;
+          flex-shrink: 0;
+          display: flex; align-items: center; justify-content: center;
+          border-radius: 16px;
+          color: #0a1a14;
+          background: linear-gradient(135deg, #e0a93b, #c8922a);
+          box-shadow: 0 8px 24px rgba(200,146,42,0.35);
+        }
+        .agenda-single-body { flex: 1; min-width: 0; }
+        .agenda-single-kicker {
+          display: block;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: #c8922a;
+          margin-bottom: 4px;
+        }
+        .agenda-single-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(22px, 2.6vw, 30px);
+          font-weight: 800;
+          color: #fff;
+          margin: 0 0 12px;
+          line-height: 1.2;
+        }
+        .agenda-single-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .agenda-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          padding: 5px 14px;
+          border-radius: 100px;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #f0c46a;
+          background: rgba(200,146,42,0.12);
+          border: 1px solid rgba(200,146,42,0.35);
+        }
+        .agenda-chip-dot {
+          width: 6px; height: 6px;
+          border-radius: 50%;
+          background: #c8922a;
+          animation: agendaPulse 1.8s ease-in-out infinite;
+        }
+        .agenda-single-date {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          text-align: right;
+          padding-left: 24px;
+          border-left: 1px solid rgba(200,146,42,0.25);
+          gap: 3px;
+        }
+        .agenda-single-date-label {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+        }
+        .agenda-single-date strong {
+          font-size: 20px;
+          font-weight: 700;
+          color: #fff;
+          white-space: nowrap;
+        }
+        .agenda-single-date-loc { font-size: 12px; color: #c8922a; font-weight: 600; }
+
         /* ── Image card ── */
         .agenda-image-card {
           background: #0f2019;
@@ -360,6 +457,21 @@ const Agenda = () => {
           .agenda-date-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
           .agenda-image-wrap { padding: 12px; }
           .agenda-footer-row { flex-direction: column; gap: 10px; align-items: flex-start; }
+
+          .agenda-single {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 22px 20px 22px 24px;
+          }
+          .agenda-single-date {
+            align-items: flex-start;
+            text-align: left;
+            padding: 14px 0 0;
+            border-left: none;
+            border-top: 1px solid rgba(200,146,42,0.25);
+            width: 100%;
+          }
         }
         @media (max-width: 480px) {
           .agenda-date-grid { grid-template-columns: 1fr 1fr; }
@@ -386,20 +498,56 @@ const Agenda = () => {
           </h1>
           <div className="agenda-divider" />
 
-          {/* Tab selector */}
-          <div className="agenda-date-grid">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`agenda-date-btn${selectedTab.id === tab.id ? ' active' : ''}`}
-                onClick={() => setSelectedId(tab.id)}
-              >
-                <span className="agenda-tab-title">{tab.title}</span>
-                <span className="agenda-tab-mode">{tab.mode}</span>
-                <span className="agenda-tab-date">{tab.dateText}</span>
-              </button>
-            ))}
-          </div>
+          {/* Tab selector / single-event banner */}
+          {isSingle ? (
+            <div className="agenda-single">
+              <div className="agenda-single-icon">
+                <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+                  <rect x="3" y="4" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <line x1="16" y1="2" x2="16" y2="6" strokeLinecap="round" />
+                  <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round" />
+                  <line x1="3" y1="10" x2="21" y2="10" strokeLinecap="round" />
+                </svg>
+              </div>
+
+              <div className="agenda-single-body">
+                <span className="agenda-single-kicker">Event Scheduled on</span>
+                <h2 className="agenda-single-title">{selectedTab.title}</h2>
+                <div className="agenda-single-chips">
+                  {selectedTab.mode
+                    .split('&')
+                    .map((m) => m.trim())
+                    .filter(Boolean)
+                    .map((m) => (
+                      <span key={m} className="agenda-chip">
+                        <i className="agenda-chip-dot" />
+                        {m}
+                      </span>
+                    ))}
+                </div>
+              </div>
+
+              <div className="agenda-single-date">
+                <span className="agenda-single-date-label">Dates</span>
+                <strong>{selectedTab.dateText}</strong>
+                <span className="agenda-single-date-loc">{location}</span>
+              </div>
+            </div>
+          ) : (
+            <div className="agenda-date-grid">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`agenda-date-btn${selectedTab.id === tab.id ? ' active' : ''}`}
+                  onClick={() => setSelectedId(tab.id)}
+                >
+                  <span className="agenda-tab-title">{tab.title}</span>
+                  <span className="agenda-tab-mode">{tab.mode}</span>
+                  <span className="agenda-tab-date">{tab.dateText}</span>
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Agenda image card */}
           <div className="agenda-image-card">
@@ -420,20 +568,24 @@ const Agenda = () => {
                 </div>
               )}
             </div>
-            <div className="agenda-footer-row">
-              <div className="agenda-footer-label">
-                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <line x1="16" y1="2" x2="16" y2="6" strokeLinecap="round"/>
-                  <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round"/>
-                  <line x1="3" y1="10" x2="21" y2="10" strokeLinecap="round"/>
-                </svg>
-                {selectedTab.dateText}
+
+            {/* Footer row only for multi-tab events (banner already shows this info for single events) */}
+            {!isSingle && (
+              <div className="agenda-footer-row">
+                <div className="agenda-footer-label">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <line x1="16" y1="2" x2="16" y2="6" strokeLinecap="round"/>
+                    <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round"/>
+                    <line x1="3" y1="10" x2="21" y2="10" strokeLinecap="round"/>
+                  </svg>
+                  {selectedTab.dateText}
+                </div>
+                <div className="agenda-day-badge">
+                  {selectedTab.title} · {selectedTab.mode}
+                </div>
               </div>
-              <div className="agenda-day-badge">
-                {selectedTab.title} · {selectedTab.mode}
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

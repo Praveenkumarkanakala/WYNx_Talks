@@ -17,15 +17,15 @@ const wynxConferences = [
     fullDescription: "Theme: Innovate, Inspire, Impact: Advancing Women's Leadership and Mental Wellbeing",
   },
   {
-    id: "wynx-002",
-    title: "ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
-    date: "November 09-13, 2026",
+    id: "wynx-07",
+    title: "ASCEND 2027: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
+    date: "November 09-13, 2027",
     location: "Toronto, Canada",
     city: "Toronto",
     country: "Canada",
     category: "women-leadership",
     description:
-      "ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing, taking place in Toronto, Canada, is a transformative global conference designed to inspire, equip, and elevate women who are shaping the future of leadership. Centered on empowerment, innovation, and sustainable success, the conference brings together accomplished leaders, entrepreneurs, educators, policymakers, and emerging professionals committed to creating meaningful impact.\n\nThrough engaging keynote sessions, leadership forums, and collaborative discussions, attendees will explore topics such as executive presence, entrepreneurship, financial empowerment, workplace inclusion, innovation, and purpose-driven leadership. The conference provides a powerful platform for women to strengthen their influence, expand their networks, and develop the confidence and vision needed to thrive in an evolving global landscape.",
+      "ASCEND 2027: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing, taking place in Toronto, Canada, is a transformative global conference designed to inspire, equip, and elevate women who are shaping the future of leadership. Centered on empowerment, innovation, and sustainable success, the conference brings together accomplished leaders, entrepreneurs, educators, policymakers, and emerging professionals committed to creating meaningful impact.\n\nThrough engaging keynote sessions, leadership forums, and collaborative discussions, attendees will explore topics such as executive presence, entrepreneurship, financial empowerment, workplace inclusion, innovation, and purpose-driven leadership. The conference provides a powerful platform for women to strengthen their influence, expand their networks, and develop the confidence and vision needed to thrive in an evolving global landscape.",
     themes: [
   "Women Leading with Purpose and Power","Breaking Barriers: Women in Leadership","The Future of Women in Business and Entrepreneurship","Building Confidence, Influence, and Impact","Women as Changemakers: Driving Social Innovation",
   "Empowering Women Through Education and Advocacy","Financial Independence and Wealth Creation for Women","Negotiation, Influence, and Executive Presence","Women in STEM, Innovation, and Technology","Creating Inclusive and Equitable Workplaces",

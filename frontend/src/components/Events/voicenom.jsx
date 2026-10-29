@@ -6,12 +6,12 @@ import image3 from './conclaveimage.jpg';
 import image4 from './conclaveimage3.jpg';
 import image6 from './conclaveimage4.jpeg';
 import newYorkBrochure from './WYNX New York Brochure.pdf';
-import TorontoBrochure from './WYNx Toronto Brochure.pdf';
+// import TorontoBrochure from './WYNx Toronto Brochure.pdf';
 import DubaiBrochure from './WYNx Dubai Brochure.pdf';
 
 const CONFERENCES = [
   { img: image2, name: "QUANTUM Next Gen Women Leadership & Mental Health Conclave 2026", date: "July 20-26, 2026", location: "New York, USA", brochure: newYorkBrochure, brochureName: "WYNx New York Brochure.pdf", agenda: true },
-  // { img: image4, name: "ASCEND 2026: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing", date: "November 09-15, 2026", location: "Toronto, Canada", brochure: TorontoBrochure, brochureName: "WYNx Toronto Brochure.pdf" },
+  { img: image4, name: "ASCEND 2027: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing", date: "November 09-13, 2027", location: "Toronto, Canada", brochure: TorontoBrochure, brochureName: "WYNx Toronto Brochure.pdf" },
   { img: image3, name: "ARAB WOMEN Hi-RISE CONGRESS", date: "November 23-29, 2026", location: "Dubai, UAE", brochure: DubaiBrochure, brochureName: "WYNx Dubai Brochure.pdf" },
   { img: image6, name: "International Women's Day Congress: A Global Movement for Women's Empowerment & Mental Wellbeing", date: "March 08-14, 2027", location: "Paris, France" },
   { img: image1, name: "International Women's Day Carnival of Leadership, Impact & Innovation", date: "March 02-08, 2026", location: "Paris, France", past: true },
