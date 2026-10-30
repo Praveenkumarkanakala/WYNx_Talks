@@ -87,6 +87,17 @@ const ALL_EVENTS = [
     tags: ["Innovation", "Global Networking", "Keynote Speaker"],
     category: "Innovation",
   },
+   {
+    id: "wynx-07",
+    image: eventimg2,
+    title: "ASCEND 2027: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
+    date: "May 11-12, 2027",
+    location: "Toronto, Canada",
+    // brochure: brochure2,
+    rating: "4.7",
+    tags: ["Leadership", "Global", "Award Winning"],
+    category: "Leadership",
+  },
   {
     id: "wynx-05",
     image: eventimg5,
@@ -108,17 +119,7 @@ const ALL_EVENTS = [
     category: "Innovation",
   },
 
- {
-    id: "wynx-07",
-    image: eventimg2,
-    title: "ASCEND 2027: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
-    date: "November 09-13, 2027",
-    location: "Toronto, Canada",
-    // brochure: brochure2,
-    rating: "4.7",
-    tags: ["Leadership", "Global", "Award Winning"],
-    category: "Leadership",
-  },
+
 ];
 
 const CATEGORIES = ["All", "Leadership", "Innovation", "Empowerment"];

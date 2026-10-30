@@ -19,7 +19,7 @@ const wynxConferences = [
   {
     id: "wynx-07",
     title: "ASCEND 2027: Rise of Next-Gen Women Leaders in Power, Purpose & Wellbeing",
-    date: "November 09-13, 2027",
+    date: "May 11-12, 2027",
     location: "Toronto, Canada",
     city: "Toronto",
     country: "Canada",
